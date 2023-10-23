@@ -33,6 +33,8 @@ public class Game : MonoBehaviour
 
     Card _currentCard;
 
+    public RandomStrategy randomStrategy;
+
     /// <summary>
     /// Returns instance of the Game class.
     /// </summary>
@@ -82,6 +84,10 @@ public class Game : MonoBehaviour
         }
         _instance = this;
 
+        EqualChanceRandom equalChanceRandom = new EqualChanceRandom();
+        OnlyBlacks onlyBlacks = new OnlyBlacks();
+        OnlyReds onlyReds = new OnlyReds();
+        this.randomStrategy = equalChanceRandom;
         currentCard = GetRandomCard();
         InitializeDeck();
     }
@@ -94,8 +100,15 @@ public class Game : MonoBehaviour
     {
         currentCard = card;
     }
-
     /// <summary>
+    /// Changes the random strategy of choosing a card.
+    /// </summary>
+    /// <param name="randomStrategy">random strategy object</param>
+    public void ChangeRandomStrategy(RandomStrategy randomStrategy)
+    {
+        this.randomStrategy = randomStrategy;
+    }
+
     /// Sets a new selected card randomly from the deck.
     /// </summary>
     public void SetNewSelectedCardRandomly()
@@ -104,9 +117,9 @@ public class Game : MonoBehaviour
     }
 
     /// <summary>
-    /// Returns a random card from the list (deck of cards)
+    /// Returns a random card from the list (deck of cards) based on the random strategy.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>The chosen card</returns>
     public Card GetRandomCard()
     {
         if (cards.Count <= 0)
@@ -114,10 +127,7 @@ public class Game : MonoBehaviour
             return null;
         }
 
-        int randIndex = Random.Range(0, cards.Count);
-        var card = cards[randIndex];
-        cards.RemoveAt(randIndex);
-
+        var card = randomStrategy.GetRandomCard(cards);
 
         var cardDisplay = cardsDisplay.Find(cardDisplay => cardDisplay.card == card && cardDisplay.gameObject.activeSelf);
         if (cardDisplay != null)
