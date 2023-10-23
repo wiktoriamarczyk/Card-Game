@@ -2,27 +2,28 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 /// <summary>
-/// Class representing a card field on the board.
+/// Class representing a card field on the board.8
 /// </summary>
 public class CardField : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] Card card;
 
     /// <summary>
-    /// Method triggered when object was clicked.
+    /// Method triggered when object was clicked. It places a card on the field if no card is already placed.
     /// </summary>
-    /// <param name="eventData"></param>
+    /// <param name="eventData">pointer data</param>
     public void OnPointerClick(PointerEventData eventData)
     {
         if (card != null)
         {
             return;
         }
-        
-        card = Game.instance.GetRandomCard();
-        GetComponentInChildren<SpriteRenderer>().sprite = card.skin;
 
-        GameObject buildingPrefab = card.building; 
+        card = Game.instance.currentCard;
+        Game.instance.SetNewSelectedCardRandomly();
+
+        GetComponentInChildren<SpriteRenderer>().sprite = card.skin;
+        GameObject buildingPrefab = card.building;
         GameObject buildingObject = Instantiate(buildingPrefab, transform);
 
         transform.GetChild(1).localScale = new Vector3(.5f, .5f, .5f);

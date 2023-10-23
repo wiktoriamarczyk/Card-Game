@@ -53,7 +53,7 @@ public class CameraController : MonoBehaviour
                             (screenPosition.y / Camera.main.pixelHeight) * 1080,
                             0);
     }
-    
+
     void HandleZooming()
     {
         float deltaDistance = Input.mouseScrollDelta.y * scrollToZoomMultiplier;
@@ -136,6 +136,9 @@ public class CameraController : MonoBehaviour
         return Val;
     }
 
+    /// <summary>
+    /// Class responsible for converting between Cartesian and spherical coordinates.
+    /// </summary>
     class CoordinatesConverter : MonoBehaviour
     {
         /* A point in Cartesian space can be represented in spherical space,

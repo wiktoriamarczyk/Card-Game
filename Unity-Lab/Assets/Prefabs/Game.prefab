@@ -49,3 +49,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6a22ece95109c60409805b7ca1159133, type: 2}
   - {fileID: 11400000, guid: 840602e76993861488ec542104b74c32, type: 2}
   - {fileID: 11400000, guid: e93af575b9195734181ded777167a51f, type: 2}
+  board: {fileID: 0}
+  currentCardDisplay: {fileID: 0}
+  cardsDisplayContener: {fileID: 0}
+  cardsDisplayPrefab: {fileID: 7443637176330758806, guid: 695eb96a1ebbbab40aab3c20f2022b07, type: 3}

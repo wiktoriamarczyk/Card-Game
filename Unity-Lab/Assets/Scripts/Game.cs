@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using static Card;
 
 /// <summary>
@@ -10,7 +13,29 @@ public class Game : MonoBehaviour
 {
     [SerializeField] List<Card> cards;
     [SerializeField] Board board;
-    
+    [SerializeField] CardDisplay currentCardDisplay;
+    [SerializeField] GameObject cardsDisplayContener;
+    [SerializeField] GameObject cardsDisplayPrefab;
+
+    List<CardDisplay> cardsDisplay = new List<CardDisplay>();
+
+    /// <summary>
+    /// Currently selected card.
+    /// </summary>
+    public Card currentCard {
+        get => _currentCard;
+        set
+        {
+            _currentCard = value;
+            currentCardDisplay.card = _currentCard;
+        }
+    }
+
+    Card _currentCard;
+
+    /// <summary>
+    /// Returns instance of the Game class.
+    /// </summary>
     public static Game instance
     {
         get
@@ -33,6 +58,9 @@ public class Game : MonoBehaviour
 
     static Game _instance;
 
+    /// <summary>
+    /// Checks if instance of the Game class exists.
+    /// </summary>
     public static bool instanceExists
     {
         get
@@ -54,21 +82,61 @@ public class Game : MonoBehaviour
         }
         _instance = this;
 
-
+        currentCard = GetRandomCard();
+        InitializeDeck();
     }
-    
+
+    /// <summary>
+    /// Sets a new selected card and disables it in the deck.
+    /// </summary>
+    /// <param name="card">new card to be selected</param>
+    public void SetNewSelectedCard(Card card)
+    {
+        currentCard = card;
+    }
+
+    /// <summary>
+    /// Sets a new selected card randomly from the deck.
+    /// </summary>
+    public void SetNewSelectedCardRandomly()
+    {
+        SetNewSelectedCard(GetRandomCard());
+    }
+
     /// <summary>
     /// Returns a random card from the list (deck of cards)
     /// </summary>
     /// <returns></returns>
     public Card GetRandomCard()
     {
-        int rand = Random.Range(0, cards.Count);
-        var card = cards[rand];
-        cards.Remove(card);
+        if (cards.Count <= 0)
+        {
+            return null;
+        }
+
+        int randIndex = Random.Range(0, cards.Count);
+        var card = cards[randIndex];
+        cards.RemoveAt(randIndex);
+
+
+        var cardDisplay = cardsDisplay.Find(cardDisplay => cardDisplay.card == card && cardDisplay.gameObject.activeSelf);
+        if (cardDisplay != null)
+        {
+            cardDisplay.gameObject.SetActive(false);
+        }
+
+
         return card;
     }
 
+    /// <summary>
+    /// Adds a new card to the deck.
+    /// </summary>
+    /// <param name="color"></param>
+    /// <param name="type"></param>
+    /// <param name="skin"></param>
+    /// <param name="cardParams"></param>
+    /// <param name="building"></param>
     public void AddCardToDeck(CardColor color, CardType type, Sprite skin, List<CardParam> cardParams, GameObject building)
     {
         Card card = new Card(color, type, skin, cardParams, building);
@@ -88,10 +156,35 @@ public class Game : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Deletes a card from the deck.
+    /// </summary>
+    /// <param name="color"></param>
+    /// <param name="type"></param>
     public void DeleteCardFromDeck(CardColor color, CardType type)
     {
         Card cardToDelete = GetCardFromDeck(color, type);
         cards.Remove(cardToDelete);
+    }
+
+    /// <summary>
+    /// Swaps a card from the deck with the current selected card.
+    /// </summary>
+    /// <param name="card">card from deck</param>
+    public void SwapCardFromDeckWithCurrentSelected(Card card)
+    {
+        var deckIndex = cards.IndexOf(card);
+        var displayIndex = cardsDisplay.FindLastIndex(c => c.card == card);
+        if (deckIndex >= 0 && displayIndex >= 0 && currentCard != null)
+        {
+            if (cards[deckIndex] == cardsDisplay[displayIndex].card)
+            {
+                cards[deckIndex] = currentCard;
+                cardsDisplay[displayIndex].card = currentCard;
+
+                SetNewSelectedCard(card);
+            }
+        }
     }
 
     /// <summary>
@@ -100,5 +193,16 @@ public class Game : MonoBehaviour
     Card GetCardFromDeck(CardColor color, CardType type)
     {
         return cards.Find(card => card.color == color && card.type == type);
+    }
+
+    void InitializeDeck()
+    {
+        for (int i = 0; i < cards.Count; ++i)
+        {
+            GameObject imageObject = Instantiate(cardsDisplayPrefab, cardsDisplayContener.transform);
+            CardDisplay cardDisplay = imageObject.GetComponent<CardDisplay>();
+            cardDisplay.card = cards[i];
+            cardsDisplay.Add(cardDisplay);
+        }
     }
 }
