@@ -10,7 +10,8 @@ public class Game : MonoBehaviour
 {
     [SerializeField] List<Card> cards;
     [SerializeField] Board board;
-    
+    public RandomStrategy randomStrategy;
+
     public static Game instance
     {
         get
@@ -54,19 +55,28 @@ public class Game : MonoBehaviour
         }
         _instance = this;
 
-
+        EqualChanceRandom equalChanceRandom = new EqualChanceRandom();
+        OnlyBlacks onlyBlacks = new OnlyBlacks();
+        OnlyReds onlyReds = new OnlyReds();
+        this.randomStrategy = equalChanceRandom;
     }
-    
+
     /// <summary>
-    /// Returns a random card from the list (deck of cards)
+    /// Changes the random strategy of choosing a card.
     /// </summary>
-    /// <returns></returns>
+    /// <param name="randomStrategy">random strategy object</param>
+    public void ChangeRandomStrategy(RandomStrategy randomStrategy)
+    {
+        this.randomStrategy = randomStrategy;
+    }
+
+    /// <summary>
+    /// Returns a random card from the list (deck of cards) based on the random strategy.
+    /// </summary>
+    /// <returns>The chosen card</returns>
     public Card GetRandomCard()
     {
-        int rand = Random.Range(0, cards.Count);
-        var card = cards[rand];
-        cards.Remove(card);
-        return card;
+        return randomStrategy.GetRandomCard(cards);
     }
 
     public void AddCardToDeck(CardColor color, CardType type, Sprite skin, List<CardParam> cardParams, GameObject building)
