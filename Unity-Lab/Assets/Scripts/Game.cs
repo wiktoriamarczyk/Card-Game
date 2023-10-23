@@ -58,7 +58,7 @@ public class Game : MonoBehaviour
     }
     
     /// <summary>
-    /// Returns a random card from the list
+    /// Returns a random card from the list (deck of cards)
     /// </summary>
     /// <returns></returns>
     public Card GetRandomCard()
@@ -75,6 +75,9 @@ public class Game : MonoBehaviour
         cards.Add(card);
     }
 
+    /// <summary>
+    /// Updates an existing card in the deck with new data.
+    /// </summary>
     public void UpdateCardInDeck(CardColor color, CardType type)
     {
         Card cardToUpdate = GetCardFromDeck(color, type);
@@ -91,6 +94,9 @@ public class Game : MonoBehaviour
         cards.Remove(cardToDelete);
     }
 
+    /// <summary>
+    /// Retrieves a card from the deck based on its color and type.
+    /// </summary>
     Card GetCardFromDeck(CardColor color, CardType type)
     {
         return cards.Find(card => card.color == color && card.type == type);

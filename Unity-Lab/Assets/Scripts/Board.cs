@@ -18,7 +18,7 @@ public class Board : MonoBehaviour
     BoxCollider cardCollider;
     Vector3 boardMeshStartingScale;
     
-    Vector3 offset = new Vector3(0.1f, 0.2f, 0.1f);
+    Vector3 offset = new Vector3(0.1f, 0.15f, 0.1f);
 
     private void Awake()
     {
@@ -31,13 +31,24 @@ public class Board : MonoBehaviour
         Vector3 cardSize = cardCollider.transform.TransformVector(cardCollider.size);
         Vector3 boardSize = boardCollider.transform.TransformVector(boardCollider.size);
 
-        for (int y = 0; y < boardHeight; ++y)
+        float cardWithOffsetX = cardSize.x + offset.x;
+        float cardWithOffsetZ = cardSize.z + offset.z;
+
+        //calculate start position of the first card, based on number of offsets between them
+        float startX = -(boardWidth - 1) * (cardWithOffsetX / 2);
+        float startZ = -(boardHeight - 1) * (cardWithOffsetZ / 2);
+
+        for (int y = 0; y < boardHeight; y++)
         {
-            for (int x = 0; x < boardWidth; ++x)
+            for (int x = 0; x < boardWidth; x++)
             {
+                float xPos = startX + x * cardWithOffsetX;
+                float zPos = startZ + y * cardWithOffsetZ;
+                Vector3 cardPosition = new Vector3(xPos, offset.y, zPos);
+
                 GameObject cardObject = Instantiate(
                     cardFieldPrefab,
-                    new Vector3(x * cardSize.x + offset.x * x - boardSize.x / 4, offset.y, -(y * cardSize.z + offset.z * y - boardSize.z / 4)),
+                    cardPosition,
                     Quaternion.identity);
 
                 cardObject.transform.parent = cardsContener.transform;

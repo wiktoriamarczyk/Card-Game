@@ -39,7 +39,9 @@ public class Card : ScriptableObject
     /// </summary>
     public GameObject building;
 
-
+    /// <summary>
+    /// Initializes a new instance of the Card class with the specified parameters.
+    /// </summary>
     public Card(CardColor color, CardType type, Sprite skin, List<CardParam> cardParams, GameObject building)
     {
         this.color = color;
