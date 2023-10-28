@@ -76,7 +76,7 @@ public class Game : MonoBehaviour
         }
     }
 
-    void Awake()
+    private void Awake()
     {
         if (instanceExists && instance != this)
         {
@@ -93,7 +93,7 @@ public class Game : MonoBehaviour
     }
 
     /// <summary>
-    /// Sets a new selected card and disables it in the deck.
+    /// Sets a new currently selected card.
     /// </summary>
     /// <param name="card">new card to be selected</param>
     public void SetNewSelectedCard(Card card)
@@ -142,11 +142,11 @@ public class Game : MonoBehaviour
     /// <summary>
     /// Adds a new card to the deck.
     /// </summary>
-    /// <param name="color"></param>
-    /// <param name="type"></param>
-    /// <param name="skin"></param>
-    /// <param name="cardParams"></param>
-    /// <param name="building"></param>
+    /// <param name="color">color of the card</param>
+    /// <param name="type">type of the card</param>
+    /// <param name="skin">skin of the card</param>
+    /// <param name="cardParams">parameters of the card</param>
+    /// <param name="building">building associated with the card</param>
     public void AddCardToDeck(CardColor color, CardType type, Sprite skin, List<CardParam> cardParams, GameObject building)
     {
         Card card = new Card(color, type, skin, cardParams, building);
@@ -156,21 +156,23 @@ public class Game : MonoBehaviour
     /// <summary>
     /// Updates an existing card in the deck with new data.
     /// </summary>
-    public void UpdateCardInDeck(CardColor color, CardType type)
+    public void UpdateCardInDeck(CardColor color, CardType type, Sprite skin, List<CardParam> cardParams, GameObject building)
     {
         Card cardToUpdate = GetCardFromDeck(color, type);
-        Card cardFoundInDeck = cards.Find(card => card == cardToUpdate);
-        if (cardFoundInDeck != null)
+        if (cardToUpdate == null)
         {
-            cardFoundInDeck = cardToUpdate;
+            return;
         }
+        cardToUpdate.skin = skin;
+        cardToUpdate.cardParams = cardParams;
+        cardToUpdate.building = building;
     }
 
     /// <summary>
     /// Deletes a card from the deck.
     /// </summary>
-    /// <param name="color"></param>
-    /// <param name="type"></param>
+    /// <param name="color">color of the card</param>
+    /// <param name="type">type of the card</param>
     public void DeleteCardFromDeck(CardColor color, CardType type)
     {
         Card cardToDelete = GetCardFromDeck(color, type);
@@ -200,12 +202,15 @@ public class Game : MonoBehaviour
     /// <summary>
     /// Retrieves a card from the deck based on its color and type.
     /// </summary>
-    Card GetCardFromDeck(CardColor color, CardType type)
+    private Card GetCardFromDeck(CardColor color, CardType type)
     {
         return cards.Find(card => card.color == color && card.type == type);
     }
 
-    void InitializeDeck()
+    /// <summary>
+    /// Initializes the deck of cards.
+    /// </summary>
+    private void InitializeDeck()
     {
         for (int i = 0; i < cards.Count; ++i)
         {

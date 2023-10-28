@@ -5,7 +5,7 @@ using System;
 /// <summary>
 /// Class representing a single card in the game.
 /// </summary>
-/// 
+///
 [CreateAssetMenu(fileName = "New Card", menuName = "Card")]
 public class Card : ScriptableObject
 {
@@ -51,6 +51,10 @@ public class Card : ScriptableObject
         this.building = building;
     }
 
+    /// <summary>
+    /// Constructor for copying a card.
+    /// </summary>
+    /// <param name="card">card to be copied</param>
     public Card(Card card) : this(card.color, card.type, card.skin, card.cardParams, card.building) { }
 }
 

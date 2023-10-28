@@ -1,11 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class representing a card displayed on the screen. It visualizes player's card in the deck.
+/// </summary>
 public class CardDisplay : MonoBehaviour, IPointerClickHandler
 {
+    /// <summary>
+    /// Reference to the card.
+    /// </summary>
     [SerializeField] public Card card {
         get => _card;
         set
@@ -25,13 +29,11 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     Card _card;
 
     [SerializeField] Sprite defaultImage;
-
     [SerializeField] Image currentImage;
-
     [SerializeField] bool swapable = true;
 
     /// <summary>
-    /// Method triggered when object was clicked. It places a card on the field if no card is already placed.
+    /// Method triggered when object was clicked. It swaps the card with the one selected on the board.
     /// </summary>
     /// <param name="eventData">pointer data</param>
     public void OnPointerClick(PointerEventData eventData)

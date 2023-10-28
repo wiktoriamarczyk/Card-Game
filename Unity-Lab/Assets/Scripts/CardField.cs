@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 /// <summary>
-/// Class representing a card field on the board.8
+/// Class representing a card field on the board. It is a space on the board where a card can be placed.
 /// </summary>
 public class CardField : MonoBehaviour, IPointerClickHandler
 {

@@ -12,12 +12,11 @@ public class Board : MonoBehaviour
     [SerializeField] GameObject boardMesh;
     [SerializeField] int boardWidth;
     [SerializeField] int boardHeight;
-    
+
     CardField[,] cardFields;
     BoxCollider boardCollider;
     BoxCollider cardCollider;
     Vector3 boardMeshStartingScale;
-    
     Vector3 offset = new Vector3(0.1f, 0.15f, 0.1f);
 
     private void Awake()
