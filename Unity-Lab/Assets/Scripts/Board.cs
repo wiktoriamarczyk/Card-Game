@@ -17,8 +17,7 @@ public class Board : MonoBehaviour
     BoxCollider boardCollider;
     BoxCollider cardCollider;
     Vector3 boardMeshStartingScale;
-    Vector3 offset = new Vector3(0.1f, 0.15f, 0.1f);
-
+    Vector3 offset = new Vector3(0.0f, 0.15f, 0.0f);
     private void Awake()
     {
         InitializeVariables();
