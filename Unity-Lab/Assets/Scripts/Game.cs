@@ -17,6 +17,9 @@ public class Game : MonoBehaviour
     [SerializeField] GameObject cardsDisplayContener;
     [SerializeField] GameObject cardsDisplayPrefab;
 
+    [SerializeField] Toggle changePerspective;
+    [SerializeField] FirstPersonMovement fps;
+
     List<CardDisplay> cardsDisplay = new List<CardDisplay>();
 
     /// <summary>
@@ -90,6 +93,14 @@ public class Game : MonoBehaviour
         this.randomStrategy = equalChanceRandom;
         currentCard = GetRandomCard();
         InitializeDeck();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && fps.enabled)
+        {
+            changePerspective.isOn = false;
+        }
     }
 
     /// <summary>
@@ -197,6 +208,39 @@ public class Game : MonoBehaviour
                 SetNewSelectedCard(card);
             }
         }
+    }
+
+    public void SwapRandomCardFromDeckWithCurrentSelected()
+    {
+        List<Card> cardsFromDeck = new List<Card>();
+        foreach (var cardDisplay in cardsDisplay)
+        {
+            cardsFromDeck.Add(cardDisplay.card);
+        }
+
+        Card randomCard = randomStrategy.GetRandomCard(cardsFromDeck);
+
+        var deckIndex = cards.IndexOf(randomCard);
+        var displayIndex = cardsDisplay.FindLastIndex(c => c.card == randomCard);
+        if (deckIndex >= 0 && displayIndex >= 0 && currentCard != null)
+        {
+            if (cards[deckIndex] == cardsDisplay[displayIndex].card)
+            {
+                cards[deckIndex] = currentCard;
+                cardsDisplay[displayIndex].card = currentCard;
+
+                SetNewSelectedCard(randomCard);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Returns the number of cards
+    /// </summary>
+    /// <returns>cards count</returns>
+    public int GetCardsCount()
+    {
+        return cards.Count;
     }
 
     /// <summary>
