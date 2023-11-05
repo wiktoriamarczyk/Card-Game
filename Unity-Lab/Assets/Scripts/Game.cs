@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -21,6 +22,12 @@ public class Game : MonoBehaviour
     [SerializeField] FirstPersonMovement fps;
 
     List<CardDisplay> cardsDisplay = new List<CardDisplay>();
+
+    [SerializeField] GameOverScreen gameOverScreen;
+
+    private bool isAlive = true;
+    public int cardsLeft;
+  
 
     /// <summary>
     /// Currently selected card.
@@ -54,7 +61,7 @@ public class Game : MonoBehaviour
             {
                 GameObject newGO = new(typeof(Game).Name);
                 _instance = newGO.AddComponent<Game>();
-                Debug.Log("#Singleton# New instance: " + typeof(Game).Name, _instance);
+                UnityEngine.Debug.Log("#Singleton# New instance: " + typeof(Game).Name, _instance);
             }
 
             return _instance;
@@ -87,6 +94,8 @@ public class Game : MonoBehaviour
         }
         _instance = this;
 
+        cardsLeft= cards.Count;
+
         EqualChanceRandom equalChanceRandom = new EqualChanceRandom();
         OnlyBlacks onlyBlacks = new OnlyBlacks();
         OnlyReds onlyReds = new OnlyReds();
@@ -100,6 +109,42 @@ public class Game : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && fps.enabled)
         {
             changePerspective.isOn = false;
+        }
+
+       if(isAlive) CheckIfAlive();
+    }
+
+    /// <summary>
+    /// Delegates the gameover screen function with according parameter, depending on whether the player has won
+    /// </summary>
+    /// <param name="win">True if the player won the game, false otherwise.</param>
+
+    private void GameOver(bool win)
+    {
+        if (win)
+        {
+            gameOverScreen.Setup(true);
+            return;
+        }
+        else
+        {
+            gameOverScreen.Setup(false);
+            return;
+        }
+    }
+
+    /// <summary>
+    /// Checks if the player is still alive in the game, possibly involving more complex logic.
+    /// </summary>
+    private void CheckIfAlive()
+    {
+        //maybe some more complicated logic here
+
+        if (cardsLeft <= 0)
+        {
+            GameOver(true);
+            isAlive = false;
+
         }
     }
 
@@ -188,6 +233,7 @@ public class Game : MonoBehaviour
     {
         Card cardToDelete = GetCardFromDeck(color, type);
         cards.Remove(cardToDelete);
+
     }
 
     /// <summary>

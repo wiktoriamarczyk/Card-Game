@@ -28,5 +28,17 @@ public class CardField : MonoBehaviour, IPointerClickHandler
 
         transform.GetChild(1).localScale = new Vector3(.5f, .5f, .5f);
         buildingObject.transform.localPosition = new Vector3(0, 0, 0);
+
+        Game g = FindObjectOfType<Game>(); 
+        if (g != null)
+        {
+            g.cardsLeft--;
+        }
+
+
+
+
+
+
     }
 }
