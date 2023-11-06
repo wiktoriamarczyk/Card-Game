@@ -5,9 +5,14 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-
+/// <summary>
+/// Class representing the game over screen.
+/// </summary>
 public class GameOverScreen : MonoBehaviour
 {
+    [SerializeField] Button restartButton;
+    [SerializeField] Button exitButton;
+
     public TMP_Text gameResultTxt; //Display result right under 'Game Over'
 
     /// <summary>
@@ -17,7 +22,7 @@ public class GameOverScreen : MonoBehaviour
     public void Setup(bool didPlayerWin)
     {
 
-        if (didPlayerWin) 
+        if (didPlayerWin)
         {
             gameResultTxt.text = "You won!";
             gameResultTxt.color = Color.green;
@@ -28,6 +33,18 @@ public class GameOverScreen : MonoBehaviour
             gameResultTxt.color = Color.red;
         }
         gameObject.SetActive(true);
+    }
+
+    void Awake()
+    {
+        restartButton.onClick.AddListener(RestartBtn);
+        exitButton.onClick.AddListener(ExitBtn);
+    }
+
+    void OnDestroy()
+    {
+        restartButton.onClick.RemoveListener(RestartBtn);
+        exitButton.onClick.RemoveListener(ExitBtn);
     }
 
     /// <summary>

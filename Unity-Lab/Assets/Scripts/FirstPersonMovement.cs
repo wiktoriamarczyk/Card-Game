@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class responsible for controling player's movement on the board.
+/// </summary>
 public class FirstPersonMovement : MonoBehaviour
 {
     [SerializeField] float walkingSpeed = 7.5f;

@@ -1,9 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
+/// <summary>
+/// Resposnible for switching between two sets of objects.
+/// </summary>
 public class ObjectsSwitcher : MonoBehaviour
 {
     [SerializeField] List<GameObject> mainObjects;
@@ -11,6 +11,9 @@ public class ObjectsSwitcher : MonoBehaviour
 
     bool mainObjectOn = true;
 
+    /// <summary>
+    /// Switches between two sets of objects.
+    /// </summary>
     public void SwitchObjects()
     {
         mainObjectOn = !mainObjectOn;

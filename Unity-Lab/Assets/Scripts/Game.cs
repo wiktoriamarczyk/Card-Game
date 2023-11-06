@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static Card;
+using static DifficultySettings;
 
 /// <summary>
 /// Singleton class responsible for managing the game and its objects (board, cards etc.).
@@ -24,10 +25,10 @@ public class Game : MonoBehaviour
     List<CardDisplay> cardsDisplay = new List<CardDisplay>();
 
     [SerializeField] GameOverScreen gameOverScreen;
+    [SerializeField] HUD hud;
 
-    private bool isAlive = true;
+    /* public variables */
     public int cardsLeft;
-  
 
     /// <summary>
     /// Currently selected card.
@@ -86,6 +87,9 @@ public class Game : MonoBehaviour
         }
     }
 
+    /* private variables */
+    private bool isAlive = true;
+
     private void Awake()
     {
         if (instanceExists && instance != this)
@@ -94,12 +98,16 @@ public class Game : MonoBehaviour
         }
         _instance = this;
 
-        cardsLeft= cards.Count;
+        //hud.Initialize(DifficultySettings.instance.nickname, DifficultySettings.instance.lvlIcon,
+           // DifficultySettings.instance.bombCount, DifficultySettings.instance.levelParameters);
+
+        cardsLeft = cards.Count;
 
         EqualChanceRandom equalChanceRandom = new EqualChanceRandom();
         OnlyBlacks onlyBlacks = new OnlyBlacks();
         OnlyReds onlyReds = new OnlyReds();
         this.randomStrategy = equalChanceRandom;
+
         currentCard = GetRandomCard();
         InitializeDeck();
     }
