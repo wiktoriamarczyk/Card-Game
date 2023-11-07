@@ -6,21 +6,21 @@ using static Game;
 /// <summary>
 ///  Class responsible for storing difficulty settings.
 /// </summary>
-public class DifficultySettings
+public class LevelSettings
 {
-    public static DifficultySettings instance
+    public static LevelSettings instance
     {
         get
         {
             if (_instance == null)
             {
-                _instance = new DifficultySettings();
+                _instance = new LevelSettings();
             }
 
             return _instance;
         }
     }
-    static DifficultySettings _instance;
+    static LevelSettings _instance;
 
     public string nickname { get; private set; }
     public Sprite lvlIcon { get; private set; }
@@ -32,6 +32,7 @@ public class DifficultySettings
         public string name;
         public int minValue;
         public int maxValue;
+        public int playerValue;
         public Sprite icon;
     }
 

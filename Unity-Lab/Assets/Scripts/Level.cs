@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static DifficultySettings;
+using static LevelSettings;
 
 /// <summary>
 /// Class representing a single level and its properties

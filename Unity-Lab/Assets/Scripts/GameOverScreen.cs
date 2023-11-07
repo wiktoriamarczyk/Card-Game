@@ -10,6 +10,7 @@ using TMPro;
 /// </summary>
 public class GameOverScreen : MonoBehaviour
 {
+    [SerializeField] GameObject content;
     [SerializeField] Button restartButton;
     [SerializeField] Button exitButton;
 
@@ -21,7 +22,6 @@ public class GameOverScreen : MonoBehaviour
     /// <param name="didPlayerWin">Whether the player won.</param>
     public void Setup(bool didPlayerWin)
     {
-
         if (didPlayerWin)
         {
             gameResultTxt.text = "You won!";
@@ -32,13 +32,14 @@ public class GameOverScreen : MonoBehaviour
             gameResultTxt.text = "You lost!";
             gameResultTxt.color = Color.red;
         }
-        gameObject.SetActive(true);
+        content.SetActive(true);
     }
 
     void Awake()
     {
         restartButton.onClick.AddListener(RestartBtn);
         exitButton.onClick.AddListener(ExitBtn);
+        content.SetActive(false);
     }
 
     void OnDestroy()
@@ -53,9 +54,7 @@ public class GameOverScreen : MonoBehaviour
     /// <param name="points">The player's score.</param>
     public void Setup(int points)
     {
-        gameObject.SetActive(true);
         gameResultTxt.text = CalcGameResult(points);
-
     }
 
     /// <summary>
@@ -65,7 +64,6 @@ public class GameOverScreen : MonoBehaviour
     /// <returns>The calculated game result as a string.</returns>
     string CalcGameResult(int points)
     {
-        //some logic
         return "idk";
     }
 
@@ -84,7 +82,7 @@ public class GameOverScreen : MonoBehaviour
     public void ExitBtn()
     {
         //load main menu
-        //SceneManager.LoadScene("MainMenu")
+        SceneManager.LoadScene("MainMenu");
     }
 
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using static DifficultySettings;
+using static LevelSettings;
 
 /// <summary>
 /// Class representing the HUD of the game displaying current game information.
@@ -24,6 +24,12 @@ public class HUD : MonoBehaviour
         set => bombsLeft.text = value.ToString();
     }
 
+    private void Awake()
+    {
+        LevelSettings lvlSettings = LevelSettings.instance;
+        Initialize(lvlSettings.nickname, lvlSettings.lvlIcon, lvlSettings.bombCount, lvlSettings.levelParameters);
+    }
+
     public void Initialize(string nick, Sprite icon, int bombsCount, List<LevelParameter> parameters)
     {
         nickname.text = nick;
@@ -37,8 +43,25 @@ public class HUD : MonoBehaviour
             parameterDisplay.parameterName = parameter.name;
             parameterDisplay.minPointsValue = parameter.minValue;
             parameterDisplay.maxPointsValue = parameter.maxValue;
-            parameterDisplay.parameterIcon.sprite = parameter.icon;
             parameterDisplay.playerPoints = 0;
         }
+    }
+
+    public int GetParameterPoints(string parameterName)
+    {
+        return lvlParameters.Find(x => x.name == parameterName).playerValue;
+    }
+
+    public bool AreParametersSatisfied()
+    {
+        foreach (var parameter in lvlParameters)
+        {
+            if (parameter.playerValue < parameter.minValue)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

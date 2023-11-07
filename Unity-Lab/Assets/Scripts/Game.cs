@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static Card;
-using static DifficultySettings;
+using static LevelSettings;
 
 /// <summary>
 /// Singleton class responsible for managing the game and its objects (board, cards etc.).
@@ -150,7 +150,7 @@ public class Game : MonoBehaviour
 
         if (cardsLeft <= 0)
         {
-            GameOver(true);
+            GameOver(hud.AreParametersSatisfied());
             isAlive = false;
 
         }

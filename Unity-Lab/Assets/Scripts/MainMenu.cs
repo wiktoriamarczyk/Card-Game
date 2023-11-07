@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static DifficultySettings;
+using static LevelSettings;
 
 /// <summary>
 /// Class responsible for the main menu behaviour
@@ -44,6 +45,9 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     private List<Level> levels;
 
+    [SerializeField]
+    TMP_InputField nickNameInput;
+
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
@@ -53,7 +57,7 @@ public class MainMenu : MonoBehaviour
         // ReadLevelsFromXML();
         // For now, defining three levels - easy, medium and hard
         levels = new List<Level>(3);
-        
+
         // Defining parameters
 
         LevelParameter floorAspectRatioInfo = new LevelParameter();
@@ -67,7 +71,7 @@ public class MainMenu : MonoBehaviour
         noOfTreesInfo.minValue = 1;
 
         LevelParameter noOfCarsInfo = new LevelParameter();
-        noOfCarsInfo.name = "Iloœæ samochodów"; 
+        noOfCarsInfo.name = "Iloœæ samochodów";
         noOfCarsInfo.maxValue = 10;
         noOfCarsInfo.minValue = 5;
 
@@ -112,15 +116,15 @@ public class MainMenu : MonoBehaviour
 
         var startButton = GameObject.Find("StartButton");
         startButton.GetComponent<Button>().onClick.AddListener(delegate { StartButtonListener(); });
+
+        nickNameInput.onValueChanged.AddListener(SetNickname);
     }
 
-    /// <summary>
-    /// Update is called once per frame
-    /// </summary>
-    void Update()
+    void SetNickname(string value)
     {
-        userName = GameObject.Find("UserInput").GetComponent<TextMeshProUGUI>().text;       
+        userName = value;
     }
+
 
     /// <summary>
     /// Method responsible for loading levels from XML file
@@ -167,8 +171,8 @@ public class MainMenu : MonoBehaviour
             // Clear error message
             ClearErrorMessage();
             // Load the game scene
-            DifficultySettings.instance.SetLevelParameters(userName, selectedLevel.icon, selectedLevel.numOfBombs, selectedLevel.parameterInfos); 
-            // TODO: Start the game
+            LevelSettings.instance.SetLevelParameters(userName, selectedLevel.icon, selectedLevel.numOfBombs, selectedLevel.parameterInfos);
+            SceneManager.LoadScene("SampleScene");
         }
         else
         {
