@@ -19,6 +19,7 @@ public class CardField : MonoBehaviour, IPointerClickHandler
             return;
         }
 
+        // place a card on the field
         card = Game.instance.currentCard;
         Game.instance.SetNewSelectedCardRandomly();
 
@@ -29,16 +30,13 @@ public class CardField : MonoBehaviour, IPointerClickHandler
         transform.GetChild(1).localScale = new Vector3(.5f, .5f, .5f);
         buildingObject.transform.localPosition = new Vector3(0, 0, 0);
 
-        Game g = FindObjectOfType<Game>(); 
-        if (g != null)
+        Game.instance.cardsLeft--;
+
+        // add points for card parameters to player
+        foreach (var param in card.cardParamsValues)
         {
-            g.cardsLeft--;
+            Game.instance.AddPointsForParameter(param);
         }
-
-
-
-
-
 
     }
 }

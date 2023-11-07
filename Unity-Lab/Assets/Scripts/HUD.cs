@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using static LevelSettings;
+using System.Linq;
 
 /// <summary>
 /// Class representing the HUD of the game displaying current game information.
@@ -63,5 +64,15 @@ public class HUD : MonoBehaviour
         }
 
         return true;
+    }
+
+    public void AddPointsForParameter(CardParamValue cardParameters)
+    {
+        LevelParameter parameter = lvlParameters.Find(x => x.name == cardParameters.paramName);
+        parameter.playerValue += cardParameters.points;
+
+        List<ParameterDisplay> parameterDisplays = parametersContener.GetComponentsInChildren<ParameterDisplay>().ToList();
+        ParameterDisplay parameterDisplay = parameterDisplays.Find(x => x.parameterName == cardParameters.paramName);
+        parameterDisplay.playerPoints = parameter.playerValue;
     }
 }

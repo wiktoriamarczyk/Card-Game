@@ -297,6 +297,11 @@ public class Game : MonoBehaviour
         return cards.Count;
     }
 
+    public void AddPointsForParameter(CardParamValue cardParameters)
+    {
+        hud.AddPointsForParameter(cardParameters);
+    }
+
     /// <summary>
     /// Retrieves a card from the deck based on its color and type.
     /// </summary>

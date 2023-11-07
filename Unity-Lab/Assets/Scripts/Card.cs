@@ -64,6 +64,6 @@ public class Card : ScriptableObject
 [Serializable]
 public struct CardParamValue
 {
-    public string category;
-    public int value;
+    public string paramName;
+    public int points;
 }
