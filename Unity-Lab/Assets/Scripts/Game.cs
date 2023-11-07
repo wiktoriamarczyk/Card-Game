@@ -209,18 +209,18 @@ public class Game : MonoBehaviour
     /// <param name="color">color of the card</param>
     /// <param name="type">type of the card</param>
     /// <param name="skin">skin of the card</param>
-    /// <param name="cardParams">parameters of the card</param>
+    /// <param name="cardParamsValues">parameters of the card</param>
     /// <param name="building">building associated with the card</param>
-    public void AddCardToDeck(CardColor color, CardType type, Sprite skin, List<CardParam> cardParams, GameObject building)
+    public void AddCardToDeck(CardColor color, CardType type, Sprite skin, List<CardParamValue> cardParamsValues, GameObject building)
     {
-        Card card = new Card(color, type, skin, cardParams, building);
+        Card card = new Card(color, type, skin, cardParamsValues, building);
         cards.Add(card);
     }
 
     /// <summary>
     /// Updates an existing card in the deck with new data.
     /// </summary>
-    public void UpdateCardInDeck(CardColor color, CardType type, Sprite skin, List<CardParam> cardParams, GameObject building)
+    public void UpdateCardInDeck(CardColor color, CardType type, Sprite skin, List<CardParamValue> cardParamsValues, GameObject building)
     {
         Card cardToUpdate = GetCardFromDeck(color, type);
         if (cardToUpdate == null)
@@ -228,7 +228,7 @@ public class Game : MonoBehaviour
             return;
         }
         cardToUpdate.skin = skin;
-        cardToUpdate.cardParams = cardParams;
+        cardToUpdate.cardParamsValues = cardParamsValues;
         cardToUpdate.building = building;
     }
 

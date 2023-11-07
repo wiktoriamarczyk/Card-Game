@@ -33,7 +33,7 @@ public class Card : ScriptableObject
     /// <summary>
     /// List of parameters
     /// </summary>
-    public List<CardParam> cardParams;
+    public List<CardParamValue> cardParamsValues;
     /// <summary>
     /// 3D model of the building associated with the card.
     /// </summary>
@@ -42,12 +42,12 @@ public class Card : ScriptableObject
     /// <summary>
     /// Initializes a new instance of the Card class with the specified parameters.
     /// </summary>
-    public Card(CardColor color, CardType type, Sprite skin, List<CardParam> cardParams, GameObject building)
+    public Card(CardColor color, CardType type, Sprite skin, List<CardParamValue> cardParams, GameObject building)
     {
         this.color = color;
         this.type = type;
         this.skin = skin;
-        this.cardParams = cardParams;
+        this.cardParamsValues = cardParams;
         this.building = building;
     }
 
@@ -55,14 +55,14 @@ public class Card : ScriptableObject
     /// Constructor for copying a card.
     /// </summary>
     /// <param name="card">card to be copied</param>
-    public Card(Card card) : this(card.color, card.type, card.skin, card.cardParams, card.building) { }
+    public Card(Card card) : this(card.color, card.type, card.skin, card.cardParamsValues, card.building) { }
 }
 
 /// <summary>
 /// Struct representing a single parameter - its category and value
 /// </summary>
 [Serializable]
-public struct CardParam
+public struct CardParamValue
 {
     public string category;
     public int value;

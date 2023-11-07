@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3498823f1ee616247858330b5ebbf058
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - levelButtonPrefab: {fileID: 8443654276936679571, guid: 1882173114ba5734e94bab4158ef93d5, type: 3}
+  - easyIcon: {fileID: 1433506152, guid: a4667b01675dccf48a1459f016736d72, type: 3}
+  - mediumIcon: {fileID: -342036797, guid: a4667b01675dccf48a1459f016736d72, type: 3}
+  - hardIcon: {fileID: 1170550220, guid: a4667b01675dccf48a1459f016736d72, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
