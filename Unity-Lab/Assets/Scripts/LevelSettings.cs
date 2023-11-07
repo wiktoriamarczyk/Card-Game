@@ -27,7 +27,7 @@ public class LevelSettings
     public int bombCount { get; private set; }
     public List<LevelParameter> levelParameters { get; private set; }
 
-    public struct LevelParameter
+    public class LevelParameter
     {
         public string name;
         public int minValue;

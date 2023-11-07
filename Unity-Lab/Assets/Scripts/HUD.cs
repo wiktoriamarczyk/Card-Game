@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using static LevelSettings;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Class representing the HUD of the game displaying current game information.
@@ -16,6 +17,7 @@ public class HUD : MonoBehaviour
     [SerializeField] TextMeshProUGUI bombsLeft;
     [SerializeField] GameObject parameterPrefab;
     [SerializeField] GameObject parametersContener;
+    [SerializeField] Button endGameButton;
 
     List<LevelParameter> lvlParameters = new List<LevelParameter>();
 
@@ -28,9 +30,29 @@ public class HUD : MonoBehaviour
     private void Awake()
     {
         LevelSettings lvlSettings = LevelSettings.instance;
+
+        foreach (var param in lvlSettings.levelParameters)
+        {
+            param.playerValue = 0;
+        }
+
+       
         Initialize(lvlSettings.nickname, lvlSettings.lvlIcon, lvlSettings.bombCount, lvlSettings.levelParameters);
+        endGameButton.onClick.AddListener(ReturnToMainMenu);
     }
 
+    private void OnDestroy()
+    {
+        endGameButton.onClick.RemoveListener(ReturnToMainMenu);
+    }
+
+    /// <summary>
+    /// Initializes HUD panel
+    /// </summary>
+    /// <param name="nick">player's nickname</param>
+    /// <param name="icon">icon of chosen level</param>
+    /// <param name="bombsCount">number of bombs of this level</param>
+    /// <param name="parameters">level parameters</param>
     public void Initialize(string nick, Sprite icon, int bombsCount, List<LevelParameter> parameters)
     {
         nickname.text = nick;
@@ -48,6 +70,11 @@ public class HUD : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Returns specific parameter points value
+    /// </summary>
+    /// <param name="parameterName">name of the parameter</param>
+    /// <returns></returns>
     public int GetParameterPoints(string parameterName)
     {
         return lvlParameters.Find(x => x.name == parameterName).playerValue;
@@ -57,22 +84,40 @@ public class HUD : MonoBehaviour
     {
         foreach (var parameter in lvlParameters)
         {
-            if (parameter.playerValue < parameter.minValue)
+            if (parameter.playerValue == parameter.minValue)
             {
-                return false;
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 
+    /// <summary>
+    /// Adds points to player's score from specific parameter points value
+    /// </summary>
+    /// <param name="cardParameters">card parameters</param>
     public void AddPointsForParameter(CardParamValue cardParameters)
     {
         LevelParameter parameter = lvlParameters.Find(x => x.name == cardParameters.paramName);
-        parameter.playerValue += cardParameters.points;
+        if (parameter != null)
+        {
+            parameter.playerValue += cardParameters.points;
+            List<ParameterDisplay> parameterDisplays = parametersContener.GetComponentsInChildren<ParameterDisplay>().ToList();
+            ParameterDisplay parameterDisplay = parameterDisplays.Find(x => x.parameterName == cardParameters.paramName);
+            if (parameterDisplay != null)
+            {
+                parameterDisplay.playerPoints = parameter.playerValue;
+            }
+        }
+      
+    }
 
-        List<ParameterDisplay> parameterDisplays = parametersContener.GetComponentsInChildren<ParameterDisplay>().ToList();
-        ParameterDisplay parameterDisplay = parameterDisplays.Find(x => x.parameterName == cardParameters.paramName);
-        parameterDisplay.playerPoints = parameter.playerValue;
+    /// <summary>
+    /// Returns to main menu
+    /// </summary>
+    void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

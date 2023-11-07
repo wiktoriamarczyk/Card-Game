@@ -39,13 +39,15 @@ public class ParameterDisplay : MonoBehaviour
                 playerPointsDisplay.color = Color.red;
                 info.text = $"Brakuje Ci {int.Parse(minPointsDisplay.text) - playerPoints} pkt!";
             }
-            else if (value >= int.Parse(maxPointsDisplay.text))
+            else if (value == int.Parse(maxPointsDisplay.text))
             {
                 playerPointsDisplay.color = Color.green;
+                info.text = $"Osi¹gn¹³eœ cel!";
             }
             else
             {
-                playerPointsDisplay.color = Color.black;
+                playerPointsDisplay.color = Color.red;
+                info.text = $"Za du¿o punktów!";
             }
         }
     }

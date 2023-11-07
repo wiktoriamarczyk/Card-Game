@@ -511,6 +511,7 @@ MonoBehaviour:
   bombsLeft: {fileID: 6690042361597056065}
   parameterPrefab: {fileID: 3180550387722979779, guid: b342f39bd865186469f8dd070886028e, type: 3}
   parametersContener: {fileID: 4311312687183341897}
+  endGameButton: {fileID: 4311312685342298553}
 --- !u!1 &4311312686139336684
 GameObject:
   m_ObjectHideFlags: 0

@@ -98,9 +98,6 @@ public class Game : MonoBehaviour
         }
         _instance = this;
 
-        //hud.Initialize(DifficultySettings.instance.nickname, DifficultySettings.instance.lvlIcon,
-           // DifficultySettings.instance.bombCount, DifficultySettings.instance.levelParameters);
-
         cardsLeft = cards.Count;
 
         EqualChanceRandom equalChanceRandom = new EqualChanceRandom();
@@ -264,6 +261,9 @@ public class Game : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Swaps a random card from the deck with the current selected card.
+    /// </summary>
     public void SwapRandomCardFromDeckWithCurrentSelected()
     {
         List<Card> cardsFromDeck = new List<Card>();
@@ -297,6 +297,10 @@ public class Game : MonoBehaviour
         return cards.Count;
     }
 
+    /// <summary>
+    /// Adds points to the HUD for a given parameter.
+    /// </summary>
+    /// <param name="cardParameters">specific parameter</param>
     public void AddPointsForParameter(CardParamValue cardParameters)
     {
         hud.AddPointsForParameter(cardParameters);
