@@ -13,6 +13,8 @@ public class ParameterDisplay : MonoBehaviour
     [SerializeField] TextMeshProUGUI playerPointsDisplay;
     [SerializeField] TextMeshProUGUI info;
 
+    Color darkGreen = new Color(0, 100, 0);
+
     public string parameterName;
     public Image parameterIcon => parameterIconDisplay;
     public int minPointsValue
@@ -39,9 +41,9 @@ public class ParameterDisplay : MonoBehaviour
                 playerPointsDisplay.color = Color.red;
                 info.text = $"Brakuje Ci {int.Parse(minPointsDisplay.text) - playerPoints} pkt!";
             }
-            else if (value == int.Parse(maxPointsDisplay.text))
+            else if (value <= int.Parse(maxPointsDisplay.text))
             {
-                playerPointsDisplay.color = Color.green;
+                playerPointsDisplay.color = darkGreen;
                 info.text = $"Osi¹gn¹³eœ cel!";
             }
             else

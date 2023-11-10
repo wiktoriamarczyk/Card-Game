@@ -145,7 +145,7 @@ public class Game : MonoBehaviour
     {
         //maybe some more complicated logic here
 
-        if (cardsLeft <= 0)
+        if (cardsLeft <= 0 && currentCard == null)
         {
             GameOver(hud.AreParametersSatisfied());
             isAlive = false;

@@ -1193,6 +1193,10 @@ MonoBehaviour:
   mediumIcon: {fileID: -342036797, guid: a4667b01675dccf48a1459f016736d72, type: 3}
   hardIcon: {fileID: 1170550220, guid: a4667b01675dccf48a1459f016736d72, type: 3}
   nickNameInput: {fileID: 496269152}
+  lvlIcons:
+  - {fileID: 21300000, guid: 211f201c08dfbbf4083309fdc71387c6, type: 3}
+  - {fileID: 21300000, guid: 6b91390eac2c7ee47baa6f90227c69bd, type: 3}
+  - {fileID: 21300000, guid: 9989cf95820776645b549f83ac3afb96, type: 3}
 --- !u!1 &979450444
 GameObject:
   m_ObjectHideFlags: 0

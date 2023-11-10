@@ -19,7 +19,7 @@ MonoBehaviour:
   - paramName: "Intensywno\u015B\u0107 zabudowy"
     paramValue: 2
   - paramName: "Ilo\u015B\u0107 drzew"
-    paramValue: 5
+    paramValue: 1
   - paramName: "Ilo\u015B\u0107 samochod\xF3w"
-    paramValue: 6
+    paramValue: 3
   building: {fileID: 5893475725263468730, guid: 7e6073b3fc4893844bf88a751030653c, type: 3}

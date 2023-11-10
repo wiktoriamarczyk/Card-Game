@@ -232,7 +232,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 142777735521452885}
   bombCounterDisplay: {fileID: 6690042361597056065}
-  bombCounter: 5
 --- !u!1 &4311312685838826436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,16 +1394,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7422796533712364206, guid: c05e8c504342a5c47aa3a75ac327de2b, type: 3}
       propertyPath: m_text
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7422796533712364206, guid: c05e8c504342a5c47aa3a75ac327de2b, type: 3}
       propertyPath: m_fontSize
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7422796533712364206, guid: c05e8c504342a5c47aa3a75ac327de2b, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 7ddcb4994d3c57c44a6b329f1bff5ed4, type: 2}
+    - target: {fileID: 7422796533712364206, guid: c05e8c504342a5c47aa3a75ac327de2b, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422796533712364206, guid: c05e8c504342a5c47aa3a75ac327de2b, type: 3}
       propertyPath: m_fontSizeBase
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 7422796533712364206, guid: c05e8c504342a5c47aa3a75ac327de2b, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -7355592088530473985, guid: 7ddcb4994d3c57c44a6b329f1bff5ed4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c05e8c504342a5c47aa3a75ac327de2b, type: 3}
 --- !u!114 &6690042361597056065 stripped

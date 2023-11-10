@@ -11,11 +11,12 @@ public class BombBehaviour : MonoBehaviour
 {
     [SerializeField] Button button;
     [SerializeField] TMP_Text bombCounterDisplay;
-    [SerializeField] int bombCounter = 0;
+    int bombCounter;
 
     void Awake()
     {
         button.onClick.AddListener(DeleteSelectedCard);
+        bombCounter = LevelSettings.instance.bombCount;
         bombCounterDisplay.SetText(bombCounter.ToString());
     }
 
@@ -24,14 +25,28 @@ public class BombBehaviour : MonoBehaviour
         button.onClick.RemoveListener(DeleteSelectedCard);
     }
 
+    bool AreThereAnyBombLeft()
+    {
+        if (bombCounter <= 0 || (Game.instance.GetCardsCount() <= 0 && Game.instance.currentCard == null))
+        {
+            return false;
+        }
+        return true;
+    }
+
     void DeleteSelectedCard()
     {
-        if (bombCounter <= 0 || Game.instance.GetCardsCount() <= 0)
+        if (!AreThereAnyBombLeft())
         {
             return;
         }
         Game.instance.SetNewSelectedCardRandomly();
+        Game.instance.cardsLeft--;
         bombCounter--;
+        if (!AreThereAnyBombLeft())
+        {
+            bombCounterDisplay.color = Color.red;
+        }
         bombCounterDisplay.SetText(bombCounter.ToString());
     }
 }

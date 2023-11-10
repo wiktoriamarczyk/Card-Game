@@ -48,6 +48,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     TMP_InputField nickNameInput;
 
+    [SerializeField]
+    List<Sprite> lvlIcons;
+
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
@@ -64,16 +67,19 @@ public class MainMenu : MonoBehaviour
         floorAspectRatioInfo.name = "Intensywnoœæ zabudowy";
         floorAspectRatioInfo.maxValue = 6;
         floorAspectRatioInfo.minValue = 2;
+        floorAspectRatioInfo.icon = lvlIcons.Find(x => x.name == floorAspectRatioInfo.name);
 
         LevelParameter noOfTreesInfo = new LevelParameter();
         noOfTreesInfo.name = "Iloœæ drzew";
         noOfTreesInfo.maxValue = 3;
         noOfTreesInfo.minValue = 1;
+        noOfTreesInfo.icon = lvlIcons.Find(x => x.name == noOfTreesInfo.name);
 
         LevelParameter noOfCarsInfo = new LevelParameter();
         noOfCarsInfo.name = "Iloœæ samochodów";
         noOfCarsInfo.maxValue = 10;
         noOfCarsInfo.minValue = 5;
+        noOfCarsInfo.icon = lvlIcons.Find(x => x.name == noOfCarsInfo.name);
 
         List<LevelParameter> easyLevelParameters = new List<LevelParameter>
         {

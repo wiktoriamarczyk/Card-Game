@@ -67,6 +67,7 @@ public class HUD : MonoBehaviour
             parameterDisplay.minPointsValue = parameter.minValue;
             parameterDisplay.maxPointsValue = parameter.maxValue;
             parameterDisplay.playerPoints = 0;
+            parameterDisplay.parameterIcon.sprite = parameter.icon;
         }
     }
 
@@ -84,13 +85,13 @@ public class HUD : MonoBehaviour
     {
         foreach (var parameter in lvlParameters)
         {
-            if (parameter.playerValue == parameter.minValue)
+            if (parameter.playerValue < parameter.minValue || parameter.playerValue > parameter.maxValue)
             {
-                return true;
+                return false;
             }
         }
 
-        return false;
+        return true;
     }
 
     /// <summary>
@@ -110,7 +111,6 @@ public class HUD : MonoBehaviour
                 parameterDisplay.playerPoints = parameter.playerValue;
             }
         }
-
     }
 
     /// <summary>
