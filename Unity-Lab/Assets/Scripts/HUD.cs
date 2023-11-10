@@ -8,7 +8,7 @@ using System.Linq;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Class representing the HUD of the game displaying current game information.
+/// Class representing the HUD of the game displaying current game informations.
 /// </summary>
 public class HUD : MonoBehaviour
 {
@@ -36,7 +36,7 @@ public class HUD : MonoBehaviour
             param.playerValue = 0;
         }
 
-       
+
         Initialize(lvlSettings.nickname, lvlSettings.lvlIcon, lvlSettings.bombCount, lvlSettings.levelParameters);
         endGameButton.onClick.AddListener(ReturnToMainMenu);
     }
@@ -102,7 +102,7 @@ public class HUD : MonoBehaviour
         LevelParameter parameter = lvlParameters.Find(x => x.name == cardParameters.paramName);
         if (parameter != null)
         {
-            parameter.playerValue += cardParameters.points;
+            parameter.playerValue += cardParameters.paramValue;
             List<ParameterDisplay> parameterDisplays = parametersContener.GetComponentsInChildren<ParameterDisplay>().ToList();
             ParameterDisplay parameterDisplay = parameterDisplays.Find(x => x.parameterName == cardParameters.paramName);
             if (parameterDisplay != null)
@@ -110,7 +110,7 @@ public class HUD : MonoBehaviour
                 parameterDisplay.playerPoints = parameter.playerValue;
             }
         }
-      
+
     }
 
     /// <summary>

@@ -65,5 +65,5 @@ public class Card : ScriptableObject
 public struct CardParamValue
 {
     public string paramName;
-    public int points;
+    public int paramValue;
 }

@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -15,6 +19,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
         set
         {
             _card = value;
+            onCardChanged?.Invoke(_card);
             if (_card != null)
             {
                 currentImage.sprite = _card.skin;
@@ -32,15 +37,17 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler
     [SerializeField] Image currentImage;
     [SerializeField] bool swapable = true;
 
+    public event Action<Card> onCardChanged;
+
     /// <summary>
     /// Method triggered when object was clicked. It swaps the card with the one selected on the board.
     /// </summary>
     /// <param name="eventData">pointer data</param>
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (card != null && swapable)
-        {
-            Game.instance.SwapCardFromDeckWithCurrentSelected(card);
-        }
+        //if (card != null && swapable)
+        //{
+        //    Game.instance.SwapCardFromDeckWithCurrentSelected(card);
+        //}
     }
 }

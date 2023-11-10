@@ -4,6 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class representing the bomb button behaviour.
+/// </summary>
 public class BombBehaviour : MonoBehaviour
 {
     [SerializeField] Button button;

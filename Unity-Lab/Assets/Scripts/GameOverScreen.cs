@@ -73,7 +73,7 @@ public class GameOverScreen : MonoBehaviour
     /// </summary>
     public void RestartBtn()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("GameScene");
     }
 
     /// <summary>

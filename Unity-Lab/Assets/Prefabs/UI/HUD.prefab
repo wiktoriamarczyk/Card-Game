@@ -332,7 +332,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -885,7 +885,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -956,7 +956,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 280.8, y: 0}
+  m_AnchoredPosition: {x: 289.62, y: 0}
   m_SizeDelta: {x: 0, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4311312687183342260
@@ -1010,6 +1010,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Spacer po osiedlu
       objectReference: {fileID: 0}
+    - target: {fileID: 301950130359199869, guid: b938ea5bcee528e4c9636accc34ac12a, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1548507252038329832, guid: b938ea5bcee528e4c9636accc34ac12a, type: 3}
       propertyPath: mainObject
       value: 
@@ -1020,7 +1024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1548507252038329833, guid: b938ea5bcee528e4c9636accc34ac12a, type: 3}
       propertyPath: m_Spacing
-      value: -20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1548507252038329836, guid: b938ea5bcee528e4c9636accc34ac12a, type: 3}
       propertyPath: m_Name
@@ -1160,7 +1164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3649957152298391553, guid: b938ea5bcee528e4c9636accc34ac12a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 41.684998
+      value: 31.565002
       objectReference: {fileID: 0}
     - target: {fileID: 3649957152298391553, guid: b938ea5bcee528e4c9636accc34ac12a, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1271,6 +1275,10 @@ PrefabInstance:
     - target: {fileID: 7422796533712364206, guid: c05e8c504342a5c47aa3a75ac327de2b, type: 3}
       propertyPath: m_text
       value: Nickname
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422796533712364206, guid: c05e8c504342a5c47aa3a75ac327de2b, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c05e8c504342a5c47aa3a75ac327de2b, type: 3}

@@ -172,7 +172,7 @@ public class MainMenu : MonoBehaviour
             ClearErrorMessage();
             // Load the game scene
             LevelSettings.instance.SetLevelParameters(userName, selectedLevel.icon, selectedLevel.numOfBombs, selectedLevel.parameterInfos);
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("GameScene");
         }
         else
         {

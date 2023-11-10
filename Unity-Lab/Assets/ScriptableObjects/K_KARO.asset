@@ -17,9 +17,9 @@ MonoBehaviour:
   skin: {fileID: 21300000, guid: f2921d35aca11f54986ca86a50271252, type: 3}
   cardParamsValues:
   - paramName: "Intensywno\u015B\u0107 zabudowy"
-    points: 4
+    paramValue: 2
   - paramName: "Ilo\u015B\u0107 drzew"
-    points: 3
+    paramValue: 5
   - paramName: "Ilo\u015B\u0107 samochod\xF3w"
-    points: 2
+    paramValue: 6
   building: {fileID: 5893475725263468730, guid: 7e6073b3fc4893844bf88a751030653c, type: 3}

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using static Game;
 
 /// <summary>
-///  Class responsible for storing difficulty settings.
+///  Class responsible for storing current game informations such as player's nickname, level parameters, etc.
 /// </summary>
 public class LevelSettings
 {
