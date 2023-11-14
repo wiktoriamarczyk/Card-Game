@@ -22,11 +22,6 @@ public class FirstPersonMovement : MonoBehaviour
     [HideInInspector]
     public bool canMove = true;
 
-    const float maxUpperBorder = 1.5f;
-    const float maxLowerBorder = -1.5f;
-    const float maxLeftBorder = -1.1f;
-    const float maxRightBorder = 1.1f;
-
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -34,14 +29,14 @@ public class FirstPersonMovement : MonoBehaviour
 
     void OnEnable()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
     void OnDisable()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.visible = true;
     }
 
     void Update()
@@ -83,10 +78,6 @@ public class FirstPersonMovement : MonoBehaviour
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
-
-        float newX = Mathf.Clamp(transform.position.x, maxLeftBorder, maxRightBorder);
-        float newZ = Mathf.Clamp(transform.position.z, maxLowerBorder, maxUpperBorder);
-        transform.position = new Vector3(newX, transform.position.y, newZ);
     }
 
 }

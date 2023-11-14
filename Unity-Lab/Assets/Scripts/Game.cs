@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,14 +19,15 @@ public class Game : MonoBehaviour
     [SerializeField] CardDisplay currentCardDisplay;
     [SerializeField] GameObject cardsDisplayContener;
     [SerializeField] GameObject cardsDisplayPrefab;
+    [SerializeField] NavMeshSurface navMeshSurface;
 
     [SerializeField] Toggle changePerspective;
     [SerializeField] FirstPersonMovement fps;
 
-    List<CardDisplay> cardsDisplay = new List<CardDisplay>();
-
     [SerializeField] GameOverScreen gameOverScreen;
     [SerializeField] HUD hud;
+
+    List<CardDisplay> cardsDisplay = new List<CardDisplay>();
 
     /* public variables */
     public int cardsLeft;
@@ -304,6 +306,14 @@ public class Game : MonoBehaviour
     public void AddPointsForParameter(CardParamValue cardParameters)
     {
         hud.AddPointsForParameter(cardParameters);
+    }
+
+    /// <summary>
+    /// Rebuilds the navmesh.
+    /// </summary>
+    public void RebuildNavMesh()
+    {
+        navMeshSurface.BuildNavMesh();
     }
 
     /// <summary>

@@ -38,5 +38,7 @@ public class CardField : MonoBehaviour, IPointerClickHandler
             Game.instance.AddPointsForParameter(param);
         }
 
+        // rebuild the navmesh
+        Game.instance.RebuildNavMesh();
     }
 }

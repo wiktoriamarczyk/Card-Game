@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2845137170174183936}
   - component: {fileID: 1657750295436409208}
   - component: {fileID: 7439772978932888783}
+  - component: {fileID: 4333984945607773287}
   m_Layer: 0
   m_Name: CardFieldMesh
   m_TagString: Untagged
@@ -96,8 +97,24 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 1.3333337, z: 0.20000005}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.75161684, y: 1.1693968, z: 0.016275298}
+  m_Center: {x: 0.0041098595, y: 0.0076559186, z: 0.0065452233}
+--- !u!114 &4333984945607773287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832810935563930341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &3887756837899135356
 GameObject:
   m_ObjectHideFlags: 0

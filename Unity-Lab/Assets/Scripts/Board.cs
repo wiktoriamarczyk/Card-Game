@@ -17,11 +17,12 @@ public class Board : MonoBehaviour
     BoxCollider boardCollider;
     BoxCollider cardCollider;
     Vector3 boardMeshStartingScale;
-    Vector3 offset = new Vector3(0.0f, 0.15f, 0.0f);
+    Vector3 offset = new Vector3(0.14f, 0.15f, 0.16f);
     private void Awake()
     {
         InitializeVariables();
         InitializeBoard();
+        Game.instance.RebuildNavMesh();
     }
 
     private void InitializeBoard()
@@ -47,9 +48,12 @@ public class Board : MonoBehaviour
                 GameObject cardObject = Instantiate(
                     cardFieldPrefab,
                     cardPosition,
-                    Quaternion.identity);
+                    Quaternion.identity,
+                    cardsContener.transform);
 
-                cardObject.transform.parent = cardsContener.transform;
+                cardObject.transform.localPosition = cardPosition;
+
+                //cardObject.transform.parent = cardsContener.transform;
                 cardObject.name = "CardField" + x + y;
                 CardField cardFieldComponent = cardObject.GetComponent<CardField>();
                 cardFields[x, y] = cardFieldComponent;
@@ -67,9 +71,9 @@ public class Board : MonoBehaviour
         boardMeshStartingScale = boardMesh.transform.localScale;
 
         boardMeshStartingScale = new Vector3(
-            boardMeshStartingScale.x * boardWidth + offset.x * boardWidth,
+            boardMeshStartingScale.x * boardWidth,
             boardMeshStartingScale.y,
-            boardMeshStartingScale.z * boardHeight + offset.z * boardHeight);
+            boardMeshStartingScale.z * boardHeight);
 
         boardMesh.transform.localScale = boardMeshStartingScale;
     }

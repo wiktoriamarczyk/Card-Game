@@ -9,8 +9,8 @@ public class CameraController : MonoBehaviour
     [SerializeField] Vector3 startPosition;
     [SerializeField] Vector3 startRotation;
 
-    const float minHeight = 3.5f;
-    const float maxHeight = 16f;
+    const float minHeight = 20f;
+    const float maxHeight = 100f;
     const float radius = 5f;
     const float movementSpeed = 0.5f;
     const float distanceToSpeedMultiplier = 0.01f;
