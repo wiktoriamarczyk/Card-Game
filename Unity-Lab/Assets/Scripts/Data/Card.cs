@@ -38,6 +38,10 @@ public class Card : ScriptableObject
     /// 3D model of the building associated with the card.
     /// </summary>
     public GameObject building;
+    /// <summary>
+    /// List of possible tree and fountain positions.
+    /// </summary>
+    public List<Vector2> positions;
 
     /// <summary>
     /// Initializes a new instance of the Card class with the specified parameters.

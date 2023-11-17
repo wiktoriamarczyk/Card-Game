@@ -23,3 +23,7 @@ MonoBehaviour:
   - paramName: "Ilo\u015B\u0107 samochod\xF3w"
     paramValue: 2
   building: {fileID: 6303072435123222792, guid: 48b6229bfea82a542805a8f80688ff99, type: 3}
+  positions:
+  - {x: 0.25, y: 0.45}
+  - {x: -0.27, y: 0.5}
+  - {x: -0.27, y: 0.24}
