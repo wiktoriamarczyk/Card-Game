@@ -32,6 +32,7 @@ public class Game : MonoBehaviour
     /* public variables */
     public int cardsLeft;
     public List<GameObject> treePrefabs;
+    public GameObject fountainPrefab;
 
     /// <summary>
     /// Currently selected card.

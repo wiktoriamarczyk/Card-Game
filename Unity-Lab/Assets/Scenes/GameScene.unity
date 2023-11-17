@@ -1460,7 +1460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 569874035437111526, guid: dca85a54c89931e48bde1e54975aa7fa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 277.94
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 569874035437111526, guid: dca85a54c89931e48bde1e54975aa7fa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1544,7 +1544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2133437177777406153, guid: dca85a54c89931e48bde1e54975aa7fa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 23.96
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2133437177777406153, guid: dca85a54c89931e48bde1e54975aa7fa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1568,7 +1568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2240994483844256362, guid: dca85a54c89931e48bde1e54975aa7fa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 31.565002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2240994483844256362, guid: dca85a54c89931e48bde1e54975aa7fa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1664,7 +1664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3423752113853602608, guid: dca85a54c89931e48bde1e54975aa7fa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 23.96
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3423752113853602608, guid: dca85a54c89931e48bde1e54975aa7fa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1788,7 +1788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4090318534944353886, guid: dca85a54c89931e48bde1e54975aa7fa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 289.62
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4090318534944353886, guid: dca85a54c89931e48bde1e54975aa7fa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2020,7 +2020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4891130594327838730, guid: dca85a54c89931e48bde1e54975aa7fa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 131.99
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4891130594327838730, guid: dca85a54c89931e48bde1e54975aa7fa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2080,7 +2080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6935760136879052158, guid: dca85a54c89931e48bde1e54975aa7fa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 23.96
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6935760136879052158, guid: dca85a54c89931e48bde1e54975aa7fa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2104,7 +2104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7590632101160704289, guid: dca85a54c89931e48bde1e54975aa7fa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7590632101160704289, guid: dca85a54c89931e48bde1e54975aa7fa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2176,7 +2176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8996792867334381464, guid: dca85a54c89931e48bde1e54975aa7fa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 212.61
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8996792867334381464, guid: dca85a54c89931e48bde1e54975aa7fa, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2266,6 +2266,10 @@ PrefabInstance:
       propertyPath: randIcon
       value: 
       objectReference: {fileID: 21300000, guid: 75c25189b3e0d024396eac4009f7c615, type: 3}
+    - target: {fileID: 7177878765658904587, guid: f7a7176644fd6cf45832caf15a66ab3b, type: 3}
+      propertyPath: fountainPrefab
+      value: 
+      objectReference: {fileID: 8089356749294019295, guid: 29f3728e0f4ed814e8a00b4544b3a92e, type: 3}
     - target: {fileID: 7177878765658904587, guid: f7a7176644fd6cf45832caf15a66ab3b, type: 3}
       propertyPath: gameOverScreen
       value: 

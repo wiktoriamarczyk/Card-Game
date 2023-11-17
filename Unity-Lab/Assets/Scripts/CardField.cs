@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -29,7 +30,8 @@ public class CardField : MonoBehaviour, IPointerClickHandler
 
         transform.GetChild(1).localScale = new Vector3(.5f, .5f, .5f);
         buildingObject.transform.localPosition = new Vector3(0, 0, 0);
-
+        // createa a copy of the list of possible positions
+        List<Vector2> tempList = new List<Vector2>(card.positions);
         // decide whether to place a tree and/or a fountain
         int treeChance = Random.Range(0, 100);
         int fountainChance = Random.Range(0, 100);
@@ -40,18 +42,24 @@ public class CardField : MonoBehaviour, IPointerClickHandler
             GameObject treePrefab = Game.instance.treePrefabs[treeIndex];
             GameObject treeObject = Instantiate(treePrefab, transform);
             // select a random position for the tree from the list of possible positions
-            int positionIndex = Random.Range(0, card.positions.Count);
-            Vector2 position = card.positions[positionIndex];
+            int positionIndex = Random.Range(0, tempList.Count);
+            Vector2 position = tempList[positionIndex];
             treeObject.transform.localScale = new Vector3(.07f, .07f, .07f);
             treeObject.transform.localPosition = new Vector3(position.x, 0, position.y);
             // Remove the position from the list of possible positions
-            card.positions.RemoveAt(positionIndex);
+            tempList.RemoveAt(positionIndex);
         }
-        if (fountainChance < 60)
+        if (fountainChance < 101)
         {
-            if (card.positions.Count > 0)
+            if (tempList.Count > 0)
             {
-                // TODO Place a fountain
+                GameObject fountainPrefab = Game.instance.fountainPrefab;
+                GameObject fountainObject = Instantiate(fountainPrefab, transform);
+                // select a random position for the fountain from the list of possible positions
+                int positionIndex = Random.Range(0, tempList.Count);
+                Vector2 position = tempList[positionIndex];
+                fountainObject.transform.localScale = new Vector3(.015f, .015f, .015f);
+                fountainObject.transform.localPosition = new Vector3(position.x, 0.012f, position.y);
             }
         }
 
