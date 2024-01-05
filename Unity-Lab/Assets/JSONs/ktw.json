@@ -1,0 +1,51 @@
+{
+  "name": "Katowice",
+  "population": 300000,
+  "numOfBombs": 2,
+
+  "parameterInfos": [
+    {
+      "name": "apartments",
+      "minValue": 10,
+      "maxValue": 5
+    },
+    {
+      "name": "cars",
+      "minValue": 10,
+      "maxValue": 5
+    },
+    {
+      "name": "trees",
+      "minValue": 10,
+      "maxValue": 5
+    }
+  ],
+
+  "cards": [
+    {
+      "color": "CLUBS",
+      "type": "N7",
+      "name": "Muz85eum ",
+      "description": "Muzeum ",
+      //"image": "Muzeum_Slaskie_Katowice.jpg",
+      "skinPath": "3_PIK_RZUT"
+    },
+    {
+      "color": "CLUBS",
+      "type": "N9",
+      "name": "Muz85eum2 ",
+      "description": "Muzeum ",
+      //"image": "Muzeum_Slaskie_Katowice.jpg"
+      "skinPath": "3_PIK_RZUT"
+    },
+    {
+      "color": "CLUBS",
+      "type": "N10",
+      "name": "Muz85eum3 ",
+      "description": "Muzeum ",
+      //"image": "Muzeum_Slaskie_Katowice.jpg"
+      "skinPath": "3_PIK_RZUT"
+    }
+  ]
+
+}

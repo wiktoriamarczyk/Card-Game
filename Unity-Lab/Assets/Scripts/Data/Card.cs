@@ -6,8 +6,7 @@ using System;
 /// Class representing a single card in the game.
 /// </summary>
 ///
-[CreateAssetMenu(fileName = "New Card", menuName = "Card")]
-public class Card : ScriptableObject
+public class Card : MonoBehaviour
 {
     /// <summary>
     /// Defines the color of the card.
@@ -18,6 +17,10 @@ public class Card : ScriptableObject
     /// </summary>
     public enum CardType { ACE, N2, N3, N4, N5, N6, N7, N8, N9, N10, JACK, QUEEN, KING, JOKER };
 
+    /// <summary>
+    /// Name of the card.
+    /// </summary>
+    public new string name; 
     /// <summary>
     /// Color of the card.
     /// </summary>
@@ -30,6 +33,14 @@ public class Card : ScriptableObject
     /// Skin of the card.
     /// </summary>
     public Sprite skin;
+    /// <summary>
+    /// Sprite renderer of the card.
+    /// </summary>
+    public SpriteRenderer spriteRenderer;
+    /// <summary>
+    /// Path to the sprite.
+    /// </summary>
+    public string skinPath;
     /// <summary>
     /// List of parameters
     /// </summary>
@@ -60,6 +71,8 @@ public class Card : ScriptableObject
     /// </summary>
     /// <param name="card">card to be copied</param>
     public Card(Card card) : this(card.color, card.type, card.skin, card.cardParamsValues, card.building) { }
+
+    public Card() { }
 }
 
 /// <summary>

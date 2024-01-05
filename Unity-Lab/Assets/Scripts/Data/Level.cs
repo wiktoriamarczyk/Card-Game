@@ -7,7 +7,7 @@ using static LevelSettings;
 /// <summary>
 /// Class representing a single level and its properties
 /// </summary>
-public class Level
+public class Level 
 {
     /// <summary>
     /// Level name
@@ -25,6 +25,15 @@ public class Level
     /// Number of bombs
     /// </summary>
     public int numOfBombs;
+    /// <summary>
+    /// Number of people in the city
+    /// </summary>
+    public int population;
+    /// <summary>
+    /// List of cards assigned to the level
+    /// </summary>
+    public List<Card> cards = new List<Card>();
+
 
     /// <summary>
     /// Constructor
@@ -40,4 +49,32 @@ public class Level
         this.parameterInfos = parameterInfos;
         this.numOfBombs = numOfBombs;
     }
+
+    public Level()
+    {
+    }
+
+    //function to manually debug the correct serialisation of the list xDD
+    public void ListAll()
+    {
+        UnityEngine.Debug.Log("NAME: " + name);
+        UnityEngine.Debug.Log("POPULATION: " + population);
+        UnityEngine.Debug.Log("BOMBs: " + numOfBombs);
+
+        UnityEngine.Debug.Log("-------Parameter List-------");
+        int cnt = 1;
+        foreach (var p in parameterInfos)
+        {
+            UnityEngine.Debug.Log("Parameter ["+cnt+"]" + p.name);
+            cnt++;
+        }
+        UnityEngine.Debug.Log("-------Cards List-------");
+        cnt = 1;
+        foreach (var c in cards)
+        {
+            UnityEngine.Debug.Log("Card [" + cnt + "]" + c.color + "/" + c.type);
+            cnt++;
+        }
+    }
 }
+
