@@ -16,8 +16,6 @@ public class Game : MonoBehaviour
 {
     //TODO change to private later
     public List<Card> cards = new List<Card>();
-    //TODO tylko testowa lista, by sprawdziæ, czy nie zostaj¹ nadpisywane karty na dalszym etapie dzia³ania programu
-    public List<Card> cardsDwa = new List<Card>();
     [SerializeField] Board board;
     [SerializeField] CardDisplay currentCardDisplay;
     [SerializeField] GameObject cardsDisplayContener;
@@ -98,7 +96,7 @@ public class Game : MonoBehaviour
     /* private variables */
     private bool isAlive = true;
 
-    private void Awake()
+    private void Start()
     {
         if (instanceExists && instance != this)
         {
@@ -106,19 +104,14 @@ public class Game : MonoBehaviour
         }
         _instance = this;
 
-        cardsLeft = cards.Count;
-
         EqualChanceRandom equalChanceRandom = new EqualChanceRandom();
         OnlyBlacks onlyBlacks = new OnlyBlacks();
         OnlyReds onlyReds = new OnlyReds();
         this.randomStrategy = equalChanceRandom;
-    }
 
-    private void Start()
-    {
         InitializeCardsList();
-        currentCard = GetRandomCard();
         InitializeDeck();
+        currentCard = GetRandomCard();
     }
 
     private void Update()
@@ -339,30 +332,9 @@ public class Game : MonoBehaviour
     /// </summary>
     private void InitializeCardsList()
     {
-        //var cnt0 = jsonHandler;                                   //OK
-        //var cnt1 = jsonHandler.dataRead;                          //OK
-        //var cnt2 = jsonHandler.dataRead.parameterInfos;           //NULL
-        //var cnt3 = jsonHandler.dataRead.cards;                    //NULL
-
         cards = jsonHandler.dataRead.cards;
-        var cnt = jsonHandler.dataRead.cards.Count;
-
+        cardsLeft = cards.Count;
         jsonHandler.dataRead.ListAll();
-
-        for (int i = 0; i < cnt; i++)
-        {
-            UnityEngine.Debug.Log("LISTA: "+jsonHandler.dataRead.cards[i]); //NULL
-        }
-
-        for (int i = 0; i < cnt; i++)
-        {
-            cardsDwa.Add(jsonHandler.dataRead.cards[i]);
-        }
-
-        for (int i = 0; i < cnt; i++)
-        {
-            UnityEngine.Debug.Log("CARDS: " + cards[i].type);
-        }
     }
 
     /// <summary>

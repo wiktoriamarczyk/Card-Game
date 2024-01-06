@@ -15,13 +15,10 @@ public class JSON_Handler : MonoBehaviour
 {
     public Level dataRead;
     string  saveFilePath;
-    string  spritePathBegin;
 
     void Awake()
     {
         saveFilePath = Application.dataPath + "/JSONs/ktw.json";
-        //spritePathBegin = Application.dataPath + "/Sprites/Cards/";
-        spritePathBegin = "";
         LoadGame();
     }
 

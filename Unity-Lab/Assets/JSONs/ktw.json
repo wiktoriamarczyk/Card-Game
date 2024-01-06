@@ -5,17 +5,17 @@
 
   "parameterInfos": [
     {
-      "name": "apartments",
+      "name": "Intensywność zabudowy",
       "minValue": 10,
       "maxValue": 5
     },
     {
-      "name": "cars",
+      "name": "Ilość samochodów",
       "minValue": 10,
       "maxValue": 5
     },
     {
-      "name": "trees",
+      "name": "Ilość drzew",
       "minValue": 10,
       "maxValue": 5
     }
@@ -28,7 +28,21 @@
       "name": "Muz85eum ",
       "description": "Muzeum ",
       //"image": "Muzeum_Slaskie_Katowice.jpg",
-      "skinPath": "3_PIK_RZUT"
+      "skinPath": "3_PIK_RZUT",
+	  "cardParamsValues": [
+		{
+			"paramName": "Intensywność zabudowy",
+			"paramValue": 1
+		},
+		{
+			"paramName": "Ilość samochodów",
+			"paramValue": 1
+		},
+		{
+			"paramName": "Ilość drzew",
+			"paramValue": 1
+		}
+	  ]
     },
     {
       "color": "CLUBS",
@@ -36,7 +50,21 @@
       "name": "Muz85eum2 ",
       "description": "Muzeum ",
       //"image": "Muzeum_Slaskie_Katowice.jpg"
-      "skinPath": "3_PIK_RZUT"
+      "skinPath": "3_PIK_RZUT",
+	  "cardParamsValues": [
+		{
+			"paramName": "Intensywność zabudowy",
+			"paramValue": 2
+		},
+		{
+			"paramName": "Ilość samochodów",
+			"paramValue": 2
+		},
+		{
+			"paramName": "Ilość drzew",
+			"paramValue": 2
+		}
+	  ]
     },
     {
       "color": "CLUBS",
@@ -44,8 +72,21 @@
       "name": "Muz85eum3 ",
       "description": "Muzeum ",
       //"image": "Muzeum_Slaskie_Katowice.jpg"
-      "skinPath": "3_PIK_RZUT"
-    }
+      "skinPath": "3_PIK_RZUT",
+	  "cardParamsValues": [
+		{
+			"paramName": "Intensywność zabudowy",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość samochodów",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość drzew",
+			"paramValue": 3
+		}
+	  ]
+	}
   ]
-
 }

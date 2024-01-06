@@ -22,6 +22,10 @@ public class Card
     /// </summary>
     public new string name;
     /// <summary>
+    /// Description of the card.
+    /// </summary>
+    public new string description;
+    /// <summary>
     /// Color of the card.
     /// </summary>
     public CardColor color;
@@ -33,10 +37,6 @@ public class Card
     /// Skin of the card.
     /// </summary>
     public Sprite skin;
-    /// <summary>
-    /// Sprite renderer of the card.
-    /// </summary>
-    public SpriteRenderer spriteRenderer;
     /// <summary>
     /// Path to the sprite.
     /// </summary>
