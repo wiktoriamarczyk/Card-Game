@@ -23,12 +23,22 @@
 
   "cards": [
     {
-      "color": "CLUBS",
-      "type": "N7",
-      "name": "Muz85eum ",
-      "description": "Muzeum ",
-      //"image": "Muzeum_Slaskie_Katowice.jpg",
+      "color": "SPADES",
+      "type": "N3",
+      "name": "Akademia Muzyczna w Katowicach",
+      "description": "Akademia Muzyczna w Katowicach to renomowana instytucja edukacyjna, poświęcona doskonaleniu talentów muzycznych i kształceniu przyszłych profesjonalistów w dziedzinie muzyki. Zlokalizowana w dynamicznym środowisku kulturalnym Katowic, Akademia oferuje szeroką gamę programów nauczania, obejmujących różne dziedziny muzyczne, takie jak kompozycja, wykonawstwo, dyrygentura, edukacja muzyczna czy produkcja dźwięku.",
+      "buildingPath": "Akademia_Muzyki_Katowice",
       "skinPath": "3_PIK_RZUT",
+	  "positions" : [
+		{
+			"x": 50,
+			"y": 50
+		},
+		{
+			"x": 50,
+			"y": 50
+		}			
+	  ],
 	  "cardParamsValues": [
 		{
 			"paramName": "Intensywność zabudowy",
@@ -45,12 +55,22 @@
 	  ]
     },
     {
-      "color": "CLUBS",
-      "type": "N9",
-      "name": "Muz85eum2 ",
-      "description": "Muzeum ",
-      //"image": "Muzeum_Slaskie_Katowice.jpg"
-      "skinPath": "3_PIK_RZUT",
+      "color": "DIAMONDS",
+      "type": "N4",
+      "name": "Kościół Mariacki",
+      "description": "Kościół Niepokalanego Poczęcia Najświętszej Maryi Panny w Katowicach (kościół mariacki) – kościół wzniesiony w latach 1862–1870 w Katowicach, wpisany do rejestru zabytków nieruchomych województwa śląskiego. Zbudowany w stylu neogotyckim według projektu Alexisa Langera na planie krzyża łacińskiego z ciosów kamiennych, przy obecnym placu ks. Emila Szramka, zamyka wylot ulicy Mariackiej. Należy do parafii Niepokalanego Poczęcia Najświętszej Maryi Panny w Katowicach; najstarszy zachowany kościół katolicki w Śródmieściu Katowic.",
+      "buildingPath": "Kosciol_Mariacki_Katowice",
+      "skinPath": "4_KARO_RZUT",
+	  "positions" : [
+		{
+			"x": 50,
+			"y": 50
+		},
+		{
+			"x": 50,
+			"y": 50
+		}			
+	  ],
 	  "cardParamsValues": [
 		{
 			"paramName": "Intensywność zabudowy",
@@ -67,12 +87,22 @@
 	  ]
     },
     {
-      "color": "CLUBS",
-      "type": "N10",
-      "name": "Muz85eum3 ",
-      "description": "Muzeum ",
-      //"image": "Muzeum_Slaskie_Katowice.jpg"
-      "skinPath": "3_PIK_RZUT",
+      "color": "HEARTS",
+      "type": "N6",
+      "name": "Muzeum Śląskie",
+      "description": "Muzeum Śląskie w Katowicach to jedna z najważniejszych instytucji kulturalnych w regionie, prezentująca bogactwo kultury i historii Śląska. Zlokalizowane w nowoczesnym budynku, muzeum oferuje fascynującą podróż przez różne epoki i dziedziny życia społecznego, gospodarczego oraz artystycznego tego regionu.",
+	  "buildingPath": "Muzeum_Slaskie_Katowice",
+      "skinPath": "6_KIER_RZUT",
+	  "positions" : [
+		{
+			"x": 50,
+			"y": 50
+		},
+		{
+			"x": 50,
+			"y": 50
+		}			
+	  ],
 	  "cardParamsValues": [
 		{
 			"paramName": "Intensywność zabudowy",

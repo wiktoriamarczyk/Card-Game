@@ -7,7 +7,7 @@ using static LevelSettings;
 /// <summary>
 /// Class representing a single level and its properties
 /// </summary>
-public class Level 
+public class Level
 {
     /// <summary>
     /// Level name

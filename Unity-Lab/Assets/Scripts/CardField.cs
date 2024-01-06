@@ -27,6 +27,8 @@ public class CardField : MonoBehaviour, IPointerClickHandler
         GetComponentInChildren<SpriteRenderer>().sprite = card.skin;
         GameObject buildingPrefab = card.building;
         GameObject buildingObject = Instantiate(buildingPrefab, transform);
+        Building buildingComponent = buildingObject.AddComponent<Building>();
+        buildingComponent.SetCard(card);
 
         transform.GetChild(1).localScale = new Vector3(.5f, .5f, .5f);
         buildingObject.transform.localPosition = new Vector3(0, 0, 0);

@@ -38,7 +38,15 @@ public class Card
     /// </summary>
     public Sprite skin;
     /// <summary>
-    /// Path to the sprite.
+    /// Skin of the building image.
+    /// </summary>
+    public Sprite buildingSprite;
+    /// <summary>
+    /// Path to the sprite of building.
+    /// </summary>
+    public string buildingPath;
+    /// <summary>
+    /// Path to the sprite of the card.
     /// </summary>
     public string skinPath;
     /// <summary>

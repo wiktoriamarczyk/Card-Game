@@ -6,15 +6,20 @@ using System.IO;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using Newtonsoft.Json;
+using static LevelSettings;
 
 using static Level;
 using static Card;
+using System.Text;
 
 
 public class JSON_Handler : MonoBehaviour
 {
     public Level dataRead;
+    public static string levelName = "Katowice";
+
     string  saveFilePath;
+    string architectureImagePath = $"Architecture/{LevelSettings.instance.levelName}/";
 
     void Awake()
     {
@@ -52,18 +57,17 @@ public class JSON_Handler : MonoBehaviour
 
     private void LoadSprite(Card card)
     {
-        Texture2D texture = Resources.Load<Texture2D>(card.skinPath);
-        Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
-        card.skin = sprite;
+        // load card skins from Resources
+        card.skin = Resources.Load<Sprite>(card.skinPath);
 
         if (card.skin != null)
-        {
             UnityEngine.Debug.Log("Sprite loaded successfully: " + card.skinPath);
-        }
         else
-        {
             UnityEngine.Debug.LogError("Failed to load Sprite from path: " + card.skinPath);
-        }
+
+        // load building images from Resources
+        string path = architectureImagePath + card.buildingPath;
+        card.buildingSprite = Resources.Load<Sprite>(path);
     }
 
 }

@@ -28,6 +28,8 @@ public class Game : MonoBehaviour
     [SerializeField] GameOverScreen gameOverScreen;
     [SerializeField] HUD hud;
     [SerializeField] JSON_Handler jsonHandler;
+    [SerializeField] List<GameObject> buildings;
+    [SerializeField] InfoPanel infoPanel;
 
     List<CardDisplay> cardsDisplay = new List<CardDisplay>();
 
@@ -110,6 +112,7 @@ public class Game : MonoBehaviour
         this.randomStrategy = equalChanceRandom;
 
         InitializeCardsList();
+        InitializeCardBuildings();
         InitializeDeck();
         currentCard = GetRandomCard();
     }
@@ -156,6 +159,15 @@ public class Game : MonoBehaviour
             isAlive = false;
 
         }
+    }
+
+    /// <summary>
+    /// Returns info panel object
+    /// </summary>
+    /// <returns>info panel</returns>
+    public InfoPanel GetInfoPanelObject()
+    {
+        return infoPanel;
     }
 
     /// <summary>
@@ -348,6 +360,16 @@ public class Game : MonoBehaviour
             CardDisplay cardDisplay = imageObject.GetComponent<CardDisplay>();
             cardDisplay.card = cards[i];
             cardsDisplay.Add(cardDisplay);
+        }
+    }
+
+    private void InitializeCardBuildings()
+    {
+        foreach (var card in cards)
+        {
+            var building = Random.Range(0, buildings.Count);
+            card.building = buildings[building];
+            buildings.RemoveAt(building);
         }
     }
 }

@@ -22,6 +22,7 @@ public class LevelSettings
     }
     static LevelSettings _instance;
 
+    public string levelName { get; private set; }
     public string nickname { get; private set; }
     public Sprite lvlIcon { get; private set; }
     public int bombCount { get; private set; }
@@ -43,8 +44,9 @@ public class LevelSettings
     /// <param name="lvlIcon">icon of the lvl</param>
     /// <param name="bombCount">number of bombs</param>
     /// <param name="parameters">level parameters</param>
-    public void SetLevelParameters(string nick, Sprite lvlIcon, int bombCount, List<LevelParameter> parameters)
+    public void SetLevelParameters(string levelName, string nick, Sprite lvlIcon, int bombCount, List<LevelParameter> parameters)
     {
+        this.levelName = levelName;
         nickname = nick;
         this.lvlIcon = lvlIcon;
         this.bombCount = bombCount;

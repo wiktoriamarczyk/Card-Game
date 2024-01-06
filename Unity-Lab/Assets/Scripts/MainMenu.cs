@@ -97,9 +97,9 @@ public class MainMenu : MonoBehaviour
             noOfCarsInfo
         };
 
-        Level easyLevel = new Level("£atwy", easyIcon, easyLevelParameters, 3);
-        Level mediumLevel = new Level("Œredni", mediumIcon, mediumLevelParameters, 2);
-        Level hardLevel = new Level("Trudny", hardIcon, hardLevelParameters, 1);
+        Level easyLevel = new Level("Katowice", easyIcon, easyLevelParameters, 3);
+        Level mediumLevel = new Level("Sosnowiec", mediumIcon, mediumLevelParameters, 2);
+        Level hardLevel = new Level("Warszawa", hardIcon, hardLevelParameters, 1);
 
         levels.Add(easyLevel);
         levels.Add(mediumLevel);
@@ -177,7 +177,7 @@ public class MainMenu : MonoBehaviour
             // Clear error message
             ClearErrorMessage();
             // Load the game scene
-            LevelSettings.instance.SetLevelParameters(userName, selectedLevel.icon, selectedLevel.numOfBombs, selectedLevel.parameterInfos);
+            LevelSettings.instance.SetLevelParameters(selectedLevel.name, userName, selectedLevel.icon, selectedLevel.numOfBombs, selectedLevel.parameterInfos);
             SceneManager.LoadScene("GameScene");
         }
         else
