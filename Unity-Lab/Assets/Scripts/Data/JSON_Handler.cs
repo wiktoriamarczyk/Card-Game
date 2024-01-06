@@ -17,7 +17,7 @@ public class JSON_Handler : MonoBehaviour
     string  saveFilePath;
     string  spritePathBegin;
 
-    void Awake() 
+    void Awake()
     {
         saveFilePath = Application.dataPath + "/JSONs/ktw.json";
         //spritePathBegin = Application.dataPath + "/Sprites/Cards/";
@@ -31,7 +31,7 @@ public class JSON_Handler : MonoBehaviour
         if (File.Exists(saveFilePath))
         {
             try
-            {  
+            {
                 string json = File.ReadAllText(saveFilePath);
                 dataRead = JsonConvert.DeserializeObject<Level>(json);
 
@@ -54,14 +54,10 @@ public class JSON_Handler : MonoBehaviour
     }
 
     private void LoadSprite(Card card)
-    { 
-        var temp = card.skinPath;
-        card.skinPath = spritePathBegin + temp;
-        UnityEngine.Debug.Log("card.skinPath: " + card.skinPath);
-
-        //sprite`y przeniesione do Resources, mimo ¿e nie jest to optymalne rozwi¹zanie,
-        //to nie wymaga u¿ycia Addressable Assetsów
-        card.spriteRenderer.sprite = Resources.Load<Sprite>(card.skinPath);        
+    {
+        Texture2D texture = Resources.Load<Texture2D>(card.skinPath);
+        Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
+        card.skin = sprite;
 
         if (card.skin != null)
         {

@@ -17,7 +17,7 @@ public class Game : MonoBehaviour
     //TODO change to private later
     public List<Card> cards = new List<Card>();
     //TODO tylko testowa lista, by sprawdziæ, czy nie zostaj¹ nadpisywane karty na dalszym etapie dzia³ania programu
-    public List<Card> cardsDwa = new List<Card>();      
+    public List<Card> cardsDwa = new List<Card>();
     [SerializeField] Board board;
     [SerializeField] CardDisplay currentCardDisplay;
     [SerializeField] GameObject cardsDisplayContener;
@@ -112,7 +112,10 @@ public class Game : MonoBehaviour
         OnlyBlacks onlyBlacks = new OnlyBlacks();
         OnlyReds onlyReds = new OnlyReds();
         this.randomStrategy = equalChanceRandom;
+    }
 
+    private void Start()
+    {
         InitializeCardsList();
         currentCard = GetRandomCard();
         InitializeDeck();
@@ -340,15 +343,15 @@ public class Game : MonoBehaviour
         //var cnt1 = jsonHandler.dataRead;                          //OK
         //var cnt2 = jsonHandler.dataRead.parameterInfos;           //NULL
         //var cnt3 = jsonHandler.dataRead.cards;                    //NULL
-        
+
         cards = jsonHandler.dataRead.cards;
         var cnt = jsonHandler.dataRead.cards.Count;
-        
+
         jsonHandler.dataRead.ListAll();
 
         for (int i = 0; i < cnt; i++)
         {
-            UnityEngine.Debug.Log("LISTA: "+jsonHandler.dataRead.cards[i]); //NULL           
+            UnityEngine.Debug.Log("LISTA: "+jsonHandler.dataRead.cards[i]); //NULL
         }
 
         for (int i = 0; i < cnt; i++)
@@ -359,7 +362,7 @@ public class Game : MonoBehaviour
         for (int i = 0; i < cnt; i++)
         {
             UnityEngine.Debug.Log("CARDS: " + cards[i].type);
-        }      
+        }
     }
 
     /// <summary>

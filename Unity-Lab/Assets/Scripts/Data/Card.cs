@@ -6,7 +6,7 @@ using System;
 /// Class representing a single card in the game.
 /// </summary>
 ///
-public class Card : MonoBehaviour
+public class Card
 {
     /// <summary>
     /// Defines the color of the card.
@@ -20,7 +20,7 @@ public class Card : MonoBehaviour
     /// <summary>
     /// Name of the card.
     /// </summary>
-    public new string name; 
+    public new string name;
     /// <summary>
     /// Color of the card.
     /// </summary>
