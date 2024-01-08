@@ -37,6 +37,12 @@ public class Board : MonoBehaviour
         float startX = -(boardWidth - 1) * (cardWithOffsetX / 2);
         float startZ = -(boardHeight - 1) * (cardWithOffsetZ / 2);
 
+        int x_multiplier2 = Random.Range(0, boardWidth - 1);
+        int y_multiplier2 = Random.Range(0, boardHeight - 1);
+        int x_multiplier3 = Random.Range(0, boardWidth - 1);
+        int y_multiplier3 = Random.Range(0, boardHeight - 1);
+
+
         for (int y = 0; y < boardHeight; y++)
         {
             for (int x = 0; x < boardWidth; x++)
@@ -52,12 +58,15 @@ public class Board : MonoBehaviour
                     cardsContener.transform);
 
                 cardObject.transform.localPosition = cardPosition;
-
-                //cardObject.transform.parent = cardsContener.transform;
                 cardObject.name = "CardField" + x + y;
                 CardField cardFieldComponent = cardObject.GetComponent<CardField>();
-                cardFields[x, y] = cardFieldComponent;
 
+                if (x == x_multiplier2 && y == y_multiplier2)
+                    cardFieldComponent.SetMultiplier2();
+                else if (x == x_multiplier3 && y == y_multiplier3)
+                    cardFieldComponent.SetMultiplier3();
+
+                cardFields[x, y] = cardFieldComponent;
             }
         }
     }

@@ -8,6 +8,26 @@ using UnityEngine.EventSystems;
 public class CardField : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] Card card;
+    public int multiplier = 1;
+
+    /// <summary>
+    /// Method setting the card multiplier to 2.
+    /// </summary>
+    public void SetMultiplier2()
+    {
+        multiplier = 2;
+        GetComponentInChildren<SpriteRenderer>().sprite = Resources.Load<Sprite>("MUL_X2");
+        // set sprite size
+    }
+
+    /// <summary>
+    /// Method setting the card multiplier to 3.
+    /// </summary>
+    public void SetMultiplier3()
+    {
+        multiplier = 3;
+        GetComponentInChildren<SpriteRenderer>().sprite = Resources.Load<Sprite>("MUL_X3");
+    }
 
     /// <summary>
     /// Method triggered when object was clicked. It places a card on the field if no card is already placed.
@@ -70,7 +90,9 @@ public class CardField : MonoBehaviour, IPointerClickHandler
         // add points for card parameters to player
         foreach (var param in card.cardParamsValues)
         {
-            Game.instance.AddPointsForParameter(param);
+            var param1 = param;
+            param1.paramValue *= multiplier;
+            Game.instance.AddPointsForParameter(param1);
         }
 
         // rebuild the navmesh
