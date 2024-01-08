@@ -1,23 +1,26 @@
 {
   "name": "Katowice",
   "population": 300000,
-  "numOfBombs": 2,
-
+  "numOfBombs": 3,
+  "iconPath": "Katowice",
   "parameterInfos": [
     {
       "name": "Intensywność zabudowy",
       "minValue": 10,
-      "maxValue": 5
+      "maxValue": 5,
+	  "iconPath": "INT_ZAB"
     },
     {
       "name": "Ilość samochodów",
       "minValue": 10,
-      "maxValue": 5
+      "maxValue": 5,
+	  "iconPath": "ILO_SAM"
     },
     {
       "name": "Ilość drzew",
       "minValue": 10,
-      "maxValue": 5
+      "maxValue": 5,
+	  "iconPath": "ILO_DRZ"
     }
   ],
 
@@ -31,13 +34,13 @@
       "skinPath": "3_PIK_RZUT",
 	  "positions" : [
 		{
-			"x": 50,
-			"y": 50
+			"x": -0.3,
+			"y": 0.5
 		},
 		{
-			"x": 50,
-			"y": 50
-		}			
+			"x": -0.3,
+			"y": -0.5
+		}				
 	  ],
 	  "cardParamsValues": [
 		{
@@ -63,13 +66,13 @@
       "skinPath": "4_KARO_RZUT",
 	  "positions" : [
 		{
-			"x": 50,
-			"y": 50
+			"x": -0.3,
+			"y": 0.5
 		},
 		{
-			"x": 50,
-			"y": 50
-		}			
+			"x": -0.3,
+			"y": -0.5
+		}				
 	  ],
 	  "cardParamsValues": [
 		{
@@ -87,20 +90,128 @@
 	  ]
     },
     {
-      "color": "HEARTS",
-      "type": "N6",
+      "color": "CLUBS",
+      "type": "N7",
       "name": "Muzeum Śląskie",
       "description": "Muzeum Śląskie w Katowicach to jedna z najważniejszych instytucji kulturalnych w regionie, prezentująca bogactwo kultury i historii Śląska. Zlokalizowane w nowoczesnym budynku, muzeum oferuje fascynującą podróż przez różne epoki i dziedziny życia społecznego, gospodarczego oraz artystycznego tego regionu.",
 	  "buildingPath": "Muzeum_Slaskie_Katowice",
-      "skinPath": "6_KIER_RZUT",
+      "skinPath": "7_TREFL_RZUT",
 	  "positions" : [
 		{
-			"x": 50,
-			"y": 50
+			"x": -0.3,
+			"y": 0.5
 		},
 		{
-			"x": 50,
-			"y": 50
+			"x": -0.3,
+			"y": -0.5
+		}			
+	  ],
+	  "cardParamsValues": [
+		{
+			"paramName": "Intensywność zabudowy",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość samochodów",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość drzew",
+			"paramValue": 3
+		}
+	  ]
+	},
+	{
+      "color": "DIAMONDS",
+      "type": "KING",
+      "name": "NOSPR",
+      "description": "Narodowa Orkiestra Symfoniczna Polskiego Radia w Katowicach (NOSPR) to jedna z najbardziej znanych orkiestr symfonicznych w Polsce. Zlokalizowana w nowoczesnym budynku, NOSPR oferuje szeroki repertuar, obejmujący zarówno klasykę, jak i muzykę współczesną.",
+	  "buildingPath": "NOSPR_Katowice",
+      "skinPath": "K_KARO_RZUT",
+	  "positions" : [
+		{
+			"x": -0.3,
+			"y": -0.4
+		},
+		{
+			"x": 0.2,
+			"y": -0.4
+		},
+		{
+			"x": 0.2,
+			"y": 0.45
+		},
+		{
+			"x": -0.25,
+			"y": 0.45
+		}			
+	  ],
+	  "cardParamsValues": [
+		{
+			"paramName": "Intensywność zabudowy",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość samochodów",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość drzew",
+			"paramValue": 3
+		}
+	  ]
+	},
+	{
+      "color": "SPADES",
+      "type": "N8",
+      "name": "Pałac Goldsteinów",
+      "description": "Pałac Goldsteinów w Katowicach – pałac znajdujący się przy ulicy Warszawskiej 37 w Katowicach, w dzielnicy Śródmieście. Został on wzniesiony w latach 1903–1904 dla rodziny Goldsteinów, właścicieli kopalni węgla kamiennego „Giesche” w Katowicach. Obecnie w pałacu mieści się siedziba Muzeum Historii Katowic.",
+	  "buildingPath": "Pałac_Goldsteinów_Katowice",
+      "skinPath": "8_PIK_RZUT",
+	  "positions" : [
+		{
+			"x": 0.3,
+			"y": 0.5
+		},
+		{
+			"x": -0.3,
+			"y": 0.5
+		}			
+	  ],
+	  "cardParamsValues": [
+		{
+			"paramName": "Intensywność zabudowy",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość samochodów",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość drzew",
+			"paramValue": 3
+		}
+	  ]
+	},
+	{
+      "color": "HEARTS",
+      "type": "QUEEN",
+      "name": "Teatr Śląski",
+      "description": "Teatr Śląski im. Stanisława Wyspiańskiego w Katowicach – teatr dramatyczny w Katowicach, założony w 1907 roku. Od 1953 roku teatr nosi imię Stanisława Wyspiańskiego. Obecnie dyrektorem naczelnym i artystycznym jest Krzysztof Szmidt.",
+	  "buildingPath": "Teatr_Slaski_Katowice",
+      "skinPath": "D_KIER_RZUT",
+	  "positions" : [
+		{
+			"x": 0.25,
+			"y": 0.45
+		},
+		{
+			"x": -0.27,
+			"y": 0.5
+		},
+		{
+			"x": -0.27,
+			"y": 0.24
 		}			
 	  ],
 	  "cardParamsValues": [

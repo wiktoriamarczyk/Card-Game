@@ -34,6 +34,7 @@ public class LevelSettings
         public int minValue;
         public int maxValue;
         public int playerValue;
+        public string iconPath;
         public Sprite icon;
     }
 

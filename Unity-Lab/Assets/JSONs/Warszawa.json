@@ -1,0 +1,232 @@
+{
+  "name": "Warszawa",
+  "population": 1700000,
+  "numOfBombs": 1,
+  "iconPath": "Warszawa",
+ "parameterInfos": [
+    {
+      "name": "Intensywność zabudowy",
+      "minValue": 10,
+      "maxValue": 5,
+	  "iconPath": "INT_ZAB"
+    },
+    {
+      "name": "Ilość samochodów",
+      "minValue": 10,
+      "maxValue": 5,
+	  "iconPath": "ILO_SAM"
+    },
+    {
+      "name": "Ilość drzew",
+      "minValue": 10,
+      "maxValue": 5,
+	  "iconPath": "ILO_DRZ"
+    }
+  ],
+"cards": [
+	{
+      "color": "SPADES",
+      "type": "N3",
+      "name": "Blue Point",
+      "description": "Blue Point to wieżowiec biurowy zlokalizowany w Warszawie. Znajduje się on w dzielnicy Wola, w pobliżu stacji metra Rondo Daszyńskiego. Budynek ma 22 piętra i jest jednym z najwyższych budynków w Warszawie. W Blue Point znajdują się biura, restauracje, a także centrum fitness.",
+      "buildingPath": "Blue_Point_Warszawa",
+      "skinPath": "3_PIK_RZUT",
+	  "positions" : [
+		{
+			"x": -0.3,
+			"y": 0.5
+		},
+		{
+			"x": -0.3,
+			"y": -0.5
+		}				
+	  ],
+	  "cardParamsValues": [
+		{
+			"paramName": "Intensywność zabudowy",
+			"paramValue": 1
+		},
+		{
+			"paramName": "Ilość samochodów",
+			"paramValue": 1
+		},
+		{
+			"paramName": "Ilość drzew",
+			"paramValue": 1
+		}
+	  ]
+    },
+    {
+      "color": "DIAMONDS",
+      "type": "N4",
+      "name": "Genesis",
+      "description": "Genesis to budynek restauracji o nietypowym kształcie. Utrzymany w kolorze białym, z wieloma krągłościami.",
+      "buildingPath": "Genesis_Warszawa",
+      "skinPath": "4_KARO_RZUT",
+	  "positions" : [
+		{
+			"x": -0.3,
+			"y": 0.5
+		},
+		{
+			"x": -0.3,
+			"y": -0.5
+		}				
+	  ],
+	  "cardParamsValues": [
+		{
+			"paramName": "Intensywność zabudowy",
+			"paramValue": 2
+		},
+		{
+			"paramName": "Ilość samochodów",
+			"paramValue": 2
+		},
+		{
+			"paramName": "Ilość drzew",
+			"paramValue": 2
+		}
+	  ]
+    },
+    {
+      "color": "CLUBS",
+      "type": "N7",
+	  "name": "Muzeum Żydów Polskich POLIN",
+      "description": "Muzeum Żydów Polskich POLIN to muzeum poświęcone historii Żydów w Polsce. Znajduje się ono w Warszawie, w dzielnicy Muranów. Muzeum zostało otwarte w 2013 roku. W muzeum znajdują się wystawy stałe i czasowe, a także biblioteka, czy też kawiarnia.",
+	  "buildingPath": "Muzeum_Zydow_Warszawa",
+      "skinPath": "7_TREFL_RZUT",
+	  "positions" : [
+		{
+			"x": -0.3,
+			"y": 0.5
+		},
+		{
+			"x": -0.3,
+			"y": -0.5
+		}			
+	  ],
+	  "cardParamsValues": [
+		{
+			"paramName": "Intensywność zabudowy",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość samochodów",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość drzew",
+			"paramValue": 3
+		}
+	  ]
+	},
+	{
+      "color": "DIAMONDS",
+      "type": "KING",
+      "name": "Pałac Kultury i Nauki",
+      "description": "Pałac Kultury i Nauki to najwyższy budynek w Polsce. Znajduje się on w Warszawie, w dzielnicy Śródmieście. Pałac Kultury i Nauki został zbudowany w latach 1952-1955. W budynku znajdują się m.in. kina, teatry, czy też restauracje. W Pałacu Kultury i Nauki znajduje się również punkt widokowy.",
+	  "buildingPath": "Palac_Kultury_i_Nauki_Warszawa",
+      "skinPath": "K_KARO_RZUT",
+	  "positions" : [
+		{
+			"x": -0.3,
+			"y": -0.4
+		},
+		{
+			"x": 0.2,
+			"y": -0.4
+		},
+		{
+			"x": 0.2,
+			"y": 0.45
+		},
+		{
+			"x": -0.25,
+			"y": 0.45
+		}			
+	  ],
+	  "cardParamsValues": [
+		{
+			"paramName": "Intensywność zabudowy",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość samochodów",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość drzew",
+			"paramValue": 3
+		}
+	  ]
+	},
+	{
+      "color": "SPADES",
+      "type": "N8",
+      "name": "Trade Tower",
+      "description": "Trade Tower to wieżowiec biurowy zlokalizowany w Warszawie. Znajduje się on w dzielnicy Wola, w pobliżu stacji metra Rondo Daszyńskiego. Budynek ma 43 piętra i jest jednym z najwyższych budynków w Warszawie. W Trade Tower znajdują się biura, restauracje, a także centrum fitness.",
+	  "buildingPath": "Trade_Tower_Warszawa",
+      "skinPath": "8_PIK_RZUT",
+	  "positions" : [
+		{
+			"x": 0.3,
+			"y": 0.5
+		},
+		{
+			"x": -0.3,
+			"y": 0.5
+		}			
+	  ],
+	  "cardParamsValues": [
+		{
+			"paramName": "Intensywność zabudowy",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość samochodów",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość drzew",
+			"paramValue": 3
+		}
+	  ]
+	},
+	{
+      "color": "HEARTS",
+      "type": "QUEEN",
+      "name": "Varso Tower",
+      "description": "Varso Tower to wieżowiec biurowy zlokalizowany w Warszawie. Znajduje się on w dzielnicy Śródmieście, w pobliżu stacji metra Rondo ONZ. Budynek ma 53 piętra i jest najwyższym budynkiem w Polsce. W Varso Tower znajdują się biura, restauracje, a także centrum fitness.",
+	  "buildingPath": "Varso_Tower_Warszawa",
+      "skinPath": "D_KIER_RZUT",
+	  "positions" : [
+		{
+			"x": 0.25,
+			"y": 0.45
+		},
+		{
+			"x": -0.27,
+			"y": 0.5
+		},
+		{
+			"x": -0.27,
+			"y": 0.24
+		}			
+	  ],
+	  "cardParamsValues": [
+		{
+			"paramName": "Intensywność zabudowy",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość samochodów",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość drzew",
+			"paramValue": 3
+		}
+	  ]
+	}
+  ]
+}

@@ -14,6 +14,10 @@ public class Level
     /// </summary>
     public string name;
     /// <summary>
+    /// Level's icon path
+    /// </summary>
+    public string iconPath;
+    /// <summary>
     /// Level's icon
     /// </summary>
     public Sprite icon;

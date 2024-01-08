@@ -1,0 +1,233 @@
+{
+  "name": "Sosnowiec",
+  "population": 200000,
+  "numOfBombs": 2,
+  "iconPath": "Sosnowiec",
+  "parameterInfos": [
+    {
+      "name": "Intensywność zabudowy",
+      "minValue": 10,
+      "maxValue": 5,
+	  "iconPath": "INT_ZAB"
+    },
+    {
+      "name": "Ilość samochodów",
+      "minValue": 10,
+      "maxValue": 5,
+	  "iconPath": "ILO_SAM"
+    },
+    {
+      "name": "Ilość drzew",
+      "minValue": 10,
+      "maxValue": 5,
+	  "iconPath": "ILO_DRZ"
+    }
+  ],
+
+  "cards": [
+	{
+      "color": "SPADES",
+      "type": "N3",
+      "name": "Zamek Sielecki",
+      "description": "Zamek Sielecki w Sosnowcu to zabytkowy zamek, który został wybudowany w 1860 roku. Znajduje się on w Parku Sieleckim, w którym znajduje się również Muzeum Górnośląskie. W zamku znajduje się również restauracja, w której można zjeść tradycyjne śląskie potrawy.",
+      "buildingPath": "Zamek_Sielecki_w_Sosnowcu",
+      "skinPath": "3_PIK_RZUT",
+	  "positions" : [
+		{
+			"x": -0.3,
+			"y": 0.5
+		},
+		{
+			"x": -0.3,
+			"y": -0.5
+		}				
+	  ],
+	  "cardParamsValues": [
+		{
+			"paramName": "Intensywność zabudowy",
+			"paramValue": 1
+		},
+		{
+			"paramName": "Ilość samochodów",
+			"paramValue": 1
+		},
+		{
+			"paramName": "Ilość drzew",
+			"paramValue": 1
+		}
+	  ]
+    },
+    {
+      "color": "DIAMONDS",
+      "type": "N4",
+      "name": "Centrum Edukacji Ekologicznej \"Egzotarium\"",
+      "description": "Centrum Edukacji Ekologicznej \"Egzotarium\" w Sosnowcu to miejsce, w którym można zobaczyć ponad 100 gatunków zwierząt egzotycznych. Wśród nich są m.in. małpy, węże, jaszczurki, żółwie, papugi, a nawet krokodyle. W Egzotarium można również zobaczyć wystawy poświęcone przyrodzie i ekologii.",
+      "buildingPath": "Centrum_Edukacji_Ekologicznej_Egzotarium",
+      "skinPath": "4_KARO_RZUT",
+	  "positions" : [
+		{
+			"x": -0.3,
+			"y": 0.5
+		},
+		{
+			"x": -0.3,
+			"y": -0.5
+		}				
+	  ],
+	  "cardParamsValues": [
+		{
+			"paramName": "Intensywność zabudowy",
+			"paramValue": 2
+		},
+		{
+			"paramName": "Ilość samochodów",
+			"paramValue": 2
+		},
+		{
+			"paramName": "Ilość drzew",
+			"paramValue": 2
+		}
+	  ]
+    },
+    {
+      "color": "CLUBS",
+      "type": "N7",
+      "name": "Dworzec kolejowy w Sosnowcu",
+      "description": "Dworzec kolejowy w Sosnowcu to jeden z największych dworców kolejowych w Polsce. Znajduje się na nim 6 peronów, z których korzysta około 20 tysięcy pasażerów dziennie. Dworzec jest połączony z Galerią Sosnowską, a także z centrum miasta.",
+	  "buildingPath": "Dworzec_kolejowy_w_Sosnowcu",
+      "skinPath": "7_TREFL_RZUT",
+	  "positions" : [
+		{
+			"x": -0.3,
+			"y": 0.5
+		},
+		{
+			"x": -0.3,
+			"y": -0.5
+		}			
+	  ],
+	  "cardParamsValues": [
+		{
+			"paramName": "Intensywność zabudowy",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość samochodów",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość drzew",
+			"paramValue": 3
+		}
+	  ]
+	},
+	{
+      "color": "DIAMONDS",
+      "type": "KING",
+      "name": "Liceum im. Emilii Plater",
+      "description": "Liceum Ogólnokształcące im. Emilii Plater w Sosnowcu to jedna z najstarszych szkół w mieście. Została założona w 1905 roku. Obecnie w szkole uczy się około 800 uczniów. W liceum działa wiele kół zainteresowań, m.in. teatralne, plastyczne, historyczne, matematyczne, informatyczne, czy też językowe.",
+	  "buildingPath": "Liceum_Emilii_Plater",
+      "skinPath": "K_KARO_RZUT",
+	  "positions" : [
+		{
+			"x": -0.3,
+			"y": -0.4
+		},
+		{
+			"x": 0.2,
+			"y": -0.4
+		},
+		{
+			"x": 0.2,
+			"y": 0.45
+		},
+		{
+			"x": -0.25,
+			"y": 0.45
+		}			
+	  ],
+	  "cardParamsValues": [
+		{
+			"paramName": "Intensywność zabudowy",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość samochodów",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość drzew",
+			"paramValue": 3
+		}
+	  ]
+	},
+	{
+      "color": "SPADES",
+      "type": "N8",
+      "name": "MOSIR Klimont",
+      "description": "Miejski Ośrodek Sportu i Rekreacji Klimont w Sosnowcu to kompleks sportowy, w którym znajdują się m.in. basen, siłownia, korty tenisowe, czy też boiska do piłki nożnej. W MOSIR Klimont odbywają się również liczne imprezy sportowe, m.in. zawody pływackie, turnieje tenisowe, czy też mecze piłki nożnej.",
+	  "buildingPath": "MOSIR_Sosnowiec-Klimont",
+      "skinPath": "8_PIK_RZUT",
+	  "positions" : [
+		{
+			"x": 0.3,
+			"y": 0.5
+		},
+		{
+			"x": -0.3,
+			"y": 0.5
+		}			
+	  ],
+	  "cardParamsValues": [
+		{
+			"paramName": "Intensywność zabudowy",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość samochodów",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość drzew",
+			"paramValue": 3
+		}
+	  ]
+	},
+	{
+      "color": "HEARTS",
+      "type": "QUEEN",
+      "name": "Pomnik Jana Kiepury",
+      "description": "Pomnik Jana Kiepury w Sosnowcu to pomnik poświęcony słynnemu śląskiemu śpiewakowi operowemu. Znajduje się on w Parku Sieleckim, w którym znajduje się również Muzeum Górnośląskie. Pomnik Jana Kiepury został odsłonięty w 2002 roku.",
+	  "buildingPath": "Pomnik_Kiepury_Stulecia",
+      "skinPath": "D_KIER_RZUT",
+	  "positions" : [
+		{
+			"x": 0.25,
+			"y": 0.45
+		},
+		{
+			"x": -0.27,
+			"y": 0.5
+		},
+		{
+			"x": -0.27,
+			"y": 0.24
+		}			
+	  ],
+	  "cardParamsValues": [
+		{
+			"paramName": "Intensywność zabudowy",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość samochodów",
+			"paramValue": 3
+		},
+		{
+			"paramName": "Ilość drzew",
+			"paramValue": 3
+		}
+	  ]
+	}
+  ]
+}

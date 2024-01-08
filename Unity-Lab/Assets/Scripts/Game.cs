@@ -27,13 +27,13 @@ public class Game : MonoBehaviour
 
     [SerializeField] GameOverScreen gameOverScreen;
     [SerializeField] HUD hud;
-    [SerializeField] JSON_Handler jsonHandler;
     [SerializeField] List<GameObject> buildings;
     [SerializeField] InfoPanel infoPanel;
 
     List<CardDisplay> cardsDisplay = new List<CardDisplay>();
 
     /* public variables */
+    public static JSON_Handler jsonHandler;
     public int cardsLeft;
     public List<GameObject> treePrefabs;
     public GameObject fountainPrefab;
@@ -344,9 +344,9 @@ public class Game : MonoBehaviour
     /// </summary>
     private void InitializeCardsList()
     {
-        cards = jsonHandler.dataRead.cards;
+        cards = jsonHandler.readLevel.cards;
         cardsLeft = cards.Count;
-        jsonHandler.dataRead.ListAll();
+        jsonHandler.readLevel.ListAll();
     }
 
     /// <summary>

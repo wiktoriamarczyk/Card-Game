@@ -22,7 +22,7 @@ public class InfoPanel : MonoBehaviour
     public void Display(Sprite buildingImage, string buildingName, string buildingDescription)
     {
         container.SetActive(true);
-        cityNameDisplay.text = JSON_Handler.levelName;
+        cityNameDisplay.text = Game.jsonHandler.readLevel.name;
         buildingImageDisplay.sprite = buildingImage;
         buildingNameDisplay.text = buildingName;
         buildingDescriptionDisplay.text = buildingDescription;

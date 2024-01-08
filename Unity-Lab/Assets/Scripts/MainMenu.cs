@@ -17,9 +17,9 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     private string userName;
     /// <summary>
-    /// Selected level
+    /// Selected level name
     /// </summary>
-    private Level selectedLevel = null;
+    private JSON_Handler selectedLevel = null;
     /// <summary>
     /// Reference to the level button prefab
     /// </summary>
@@ -43,7 +43,7 @@ public class MainMenu : MonoBehaviour
     /// <summary>
     /// List of levels
     /// </summary>
-    private List<Level> levels;
+    private List<JSON_Handler> levels = new List<JSON_Handler>();
 
     [SerializeField]
     TMP_InputField nickNameInput;
@@ -56,67 +56,23 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     void Start()
     {
-        // Load levels from XML file
-        // ReadLevelsFromXML();
-        // For now, defining three levels - easy, medium and hard
-        levels = new List<Level>(3);
-
-        // Defining parameters
-
-        LevelParameter floorAspectRatioInfo = new LevelParameter();
-        floorAspectRatioInfo.name = "Intensywnoœæ zabudowy";
-        floorAspectRatioInfo.maxValue = 6;
-        floorAspectRatioInfo.minValue = 2;
-        floorAspectRatioInfo.icon = lvlIcons.Find(x => x.name == floorAspectRatioInfo.name);
-
-        LevelParameter noOfTreesInfo = new LevelParameter();
-        noOfTreesInfo.name = "Iloœæ drzew";
-        noOfTreesInfo.maxValue = 3;
-        noOfTreesInfo.minValue = 1;
-        noOfTreesInfo.icon = lvlIcons.Find(x => x.name == noOfTreesInfo.name);
-
-        LevelParameter noOfCarsInfo = new LevelParameter();
-        noOfCarsInfo.name = "Iloœæ samochodów";
-        noOfCarsInfo.maxValue = 10;
-        noOfCarsInfo.minValue = 5;
-        noOfCarsInfo.icon = lvlIcons.Find(x => x.name == noOfCarsInfo.name);
-
-        List<LevelParameter> easyLevelParameters = new List<LevelParameter>
-        {
-            floorAspectRatioInfo
-        };
-        List<LevelParameter> mediumLevelParameters = new List<LevelParameter>
-        {
-            floorAspectRatioInfo,
-            noOfTreesInfo
-        };
-        List<LevelParameter> hardLevelParameters = new List<LevelParameter>
-        {
-            floorAspectRatioInfo,
-            noOfTreesInfo,
-            noOfCarsInfo
-        };
-
-        Level easyLevel = new Level("Katowice", easyIcon, easyLevelParameters, 3);
-        Level mediumLevel = new Level("Sosnowiec", mediumIcon, mediumLevelParameters, 2);
-        Level hardLevel = new Level("Warszawa", hardIcon, hardLevelParameters, 1);
-
-        levels.Add(easyLevel);
-        levels.Add(mediumLevel);
-        levels.Add(hardLevel);
+        // Find all JSON files in the JSONs folder and store them in a list
+        string[] files = System.IO.Directory.GetFiles(Application.dataPath + "/JSONs", "*.json");
 
         int i = 0;
         // Displaying buttons for each level
-        foreach (Level level in levels)
+        foreach (string jsonFile in files)
         {
+            JSON_Handler jsonHandler = new JSON_Handler(jsonFile);
+            levels.Add(jsonHandler);
             // Creating button
             GameObject button = Instantiate(levelButtonPrefab);
             // Set game object's name
-            button.name = "Level"+i+"Button";
+            button.name = "Level" + i + "Button";
             button.transform.SetParent(GameObject.Find("Levels").transform);
-            button.GetComponentInChildren<TextMeshProUGUI>().text = level.name;
-            button.GetComponentsInChildren<Image>()[1].sprite = level.icon;
-            button.GetComponent<Button>().onClick.AddListener(delegate { LevelButtonListener(level); });
+            button.GetComponentInChildren<TextMeshProUGUI>().text = System.IO.Path.GetFileNameWithoutExtension(jsonFile);
+            button.GetComponentsInChildren<Image>()[1].sprite = jsonHandler.readLevel.icon;
+            button.GetComponent<Button>().onClick.AddListener(delegate { LevelButtonListener(jsonHandler); });
             i++;
         }
 
@@ -133,25 +89,17 @@ public class MainMenu : MonoBehaviour
 
 
     /// <summary>
-    /// Method responsible for loading levels from XML file
-    /// </summary>
-    public void ReadLevelsFromXML()
-    {
-        // TODO: Implement this method
-    }
-
-    /// <summary>
     /// Method responsible for handling level button click
     /// </summary>
     /// <param name="level">level of the button that has been clicked</param>
-    private void LevelButtonListener(Level level)
+    private void LevelButtonListener(JSON_Handler level)
     {
         ClearErrorMessage();
         int i = 0;
-        foreach (Level level1 in levels)
+        foreach (JSON_Handler level1 in levels)
         {
             var button = GameObject.Find("Level" + i + "Button");
-            if (level1.name == level.name)
+            if (level1.readLevel.name == level.readLevel.name)
             {
                 // Make the button green
                 button.GetComponent<Image>().color = Color.green;
@@ -177,7 +125,8 @@ public class MainMenu : MonoBehaviour
             // Clear error message
             ClearErrorMessage();
             // Load the game scene
-            LevelSettings.instance.SetLevelParameters(selectedLevel.name, userName, selectedLevel.icon, selectedLevel.numOfBombs, selectedLevel.parameterInfos);
+            LevelSettings.instance.SetLevelParameters(selectedLevel.readLevel.name, userName, selectedLevel.readLevel.icon, selectedLevel.readLevel.numOfBombs, selectedLevel.readLevel.parameterInfos);
+            Game.jsonHandler = selectedLevel;
             SceneManager.LoadScene("GameScene");
         }
         else

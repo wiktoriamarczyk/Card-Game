@@ -1,59 +1,42 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Runtime.InteropServices;
 using UnityEngine;
 using Newtonsoft.Json;
-using static LevelSettings;
-
-using static Level;
-using static Card;
-using System.Text;
 
 
-public class JSON_Handler : MonoBehaviour
+public class JSON_Handler
 {
-    public Level dataRead;
-    public static string levelName = "Katowice";
-
-    string  saveFilePath;
-    string architectureImagePath = $"Architecture/{LevelSettings.instance.levelName}/";
-
-    void Awake()
+    public Level readLevel;
+    string jsonPath;
+    string architectureImagePath;
+    
+    public JSON_Handler(string jsonName)
     {
-        saveFilePath = Application.dataPath + "/JSONs/ktw.json";
-        LoadGame();
-    }
-
-
-    public void LoadGame()
-    {
-        if (File.Exists(saveFilePath))
+        jsonPath = jsonName;
+        if (File.Exists(jsonPath))
         {
             try
             {
-                string json = File.ReadAllText(saveFilePath);
-                dataRead = JsonConvert.DeserializeObject<Level>(json);
-
-                for (int i = 0; i < dataRead.cards.Count; i++)
-                {
-                    LoadSprite(dataRead.cards[i]);
-                }
+                string json = File.ReadAllText(jsonPath);
+                readLevel = JsonConvert.DeserializeObject<Level>(json);
+                string temp = $"LevelIcons/{readLevel.iconPath}";
+                // Read image and load it as a sprite
+                architectureImagePath = $"Architecture/{readLevel.name}/";
+                Sprite sprite = Resources.Load<Sprite>(temp);
+                readLevel.icon = sprite;
+                foreach (var parameter in readLevel.parameterInfos)
+                    parameter.icon = Resources.Load<Sprite>($"ParameterIcons/{parameter.iconPath}");
+                for (int i = 0; i < readLevel.cards.Count; i++)
+                    LoadSprite(readLevel.cards[i]);
             }
             catch (Exception e)
             {
-                UnityEngine.Debug.LogError("Error loading game data: " + e.Message);
+                Debug.LogError("Error loading game data: " + e.Message);
             }
-
-            UnityEngine.Debug.Log("Data have been loaded from: " + saveFilePath);
         }
-        else
-        {
-            UnityEngine.Debug.LogWarning("JSON file does not exist.");
-        }
+        else Debug.LogWarning("JSON file does not exist.");
     }
+
 
     private void LoadSprite(Card card)
     {
@@ -61,9 +44,9 @@ public class JSON_Handler : MonoBehaviour
         card.skin = Resources.Load<Sprite>(card.skinPath);
 
         if (card.skin != null)
-            UnityEngine.Debug.Log("Sprite loaded successfully: " + card.skinPath);
+            Debug.Log("Sprite loaded successfully: " + card.skinPath);
         else
-            UnityEngine.Debug.LogError("Failed to load Sprite from path: " + card.skinPath);
+            Debug.LogError("Failed to load Sprite from path: " + card.skinPath);
 
         // load building images from Resources
         string path = architectureImagePath + card.buildingPath;
