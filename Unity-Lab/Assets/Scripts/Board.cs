@@ -39,8 +39,14 @@ public class Board : MonoBehaviour
 
         int x_multiplier2 = Random.Range(0, boardWidth - 1);
         int y_multiplier2 = Random.Range(0, boardHeight - 1);
-        int x_multiplier3 = Random.Range(0, boardWidth - 1);
-        int y_multiplier3 = Random.Range(0, boardHeight - 1);
+        int x_multiplier3;
+        int y_multiplier3;
+
+        do
+        {
+            x_multiplier3 = Random.Range(0, boardWidth - 1);
+            y_multiplier3 = Random.Range(0, boardHeight - 1);
+        } while (x_multiplier3 == x_multiplier2 && y_multiplier3 == y_multiplier2);
 
 
         for (int y = 0; y < boardHeight; y++)

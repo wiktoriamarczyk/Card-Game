@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using Unity.AI.Navigation;
 using Unity.VisualScripting;
@@ -283,25 +282,48 @@ public class Game : MonoBehaviour
     /// </summary>
     public void SwapRandomCardFromDeckWithCurrentSelected()
     {
+        DebugDisplay();
+
         List<Card> cardsFromDeck = new List<Card>();
         foreach (var cardDisplay in cardsDisplay)
         {
-            cardsFromDeck.Add(cardDisplay.card);
+            if (cardDisplay.gameObject.activeSelf && (cardDisplay.card.type != currentCard.type && cardDisplay.card.color != currentCard.color))
+                cardsFromDeck.Add(cardDisplay.card);
         }
+
+        if (cardsFromDeck.Count <= 0)
+            return;
 
         Card randomCard = randomStrategy.GetRandomCard(cardsFromDeck);
 
         var deckIndex = cards.IndexOf(randomCard);
-        var displayIndex = cardsDisplay.FindLastIndex(c => c.card == randomCard);
-        if (deckIndex >= 0 && displayIndex >= 0 && currentCard != null)
+        var randomCardDisplayIndex = cardsDisplay.FindLastIndex(c => c.card == randomCard && c.gameObject.activeSelf);
+        var currentCardDisplayIndex = cardsDisplay.FindLastIndex(c => c.card == currentCard);
+        if (deckIndex >= 0 && randomCardDisplayIndex >= 0 && currentCard != null)
         {
-            if (cards[deckIndex] == cardsDisplay[displayIndex].card)
+            if (cards[deckIndex] == cardsDisplay[randomCardDisplayIndex].card)
             {
                 cards[deckIndex] = currentCard;
-                cardsDisplay[displayIndex].card = currentCard;
-
+                cardsDisplay[randomCardDisplayIndex].card = currentCard;
+                cardsDisplay[currentCardDisplayIndex].card = randomCard;
                 SetNewSelectedCard(randomCard);
             }
+        }
+
+        DebugDisplay();
+    }
+
+    void DebugDisplay()
+    {
+        string message = $"\n---Current: {currentCard.type} {currentCard.color}---";
+        Debug.Log(string.Format("<color=#{0:X2}{1:X2}{2:X2}>{3}</color>", (byte)(Color.cyan.r * 255f), (byte)(Color.cyan.g * 255f), (byte)(Color.cyan.b * 255f), message));
+        for (int i = 0; i < cardsDisplay.Count; ++i)
+        {
+            message = $"[{i}] {cardsDisplay[i].card.type} {cardsDisplay[i].card.color} --> {cardsDisplay[i].gameObject.activeSelf}";
+            if (!cardsDisplay[i].gameObject.activeSelf)
+                Debug.Log(string.Format("<color=#{0:X2}{1:X2}{2:X2}>{3}</color>", (byte)(Color.red.r * 255f), (byte)(Color.red.g * 255f), (byte)(Color.red.b * 255f), message));
+            else
+                Debug.Log(string.Format("<color=#{0:X2}{1:X2}{2:X2}>{3}</color>", (byte)(Color.green.r * 255f), (byte)(Color.green.g * 255f), (byte)(Color.green.b * 255f), message));
         }
     }
 
@@ -344,7 +366,7 @@ public class Game : MonoBehaviour
     /// </summary>
     private void InitializeCardsList()
     {
-        cards = jsonHandler.readLevel.cards;
+        cards = new List<Card>(jsonHandler.readLevel.cards);
         cardsLeft = cards.Count;
         jsonHandler.readLevel.ListAll();
     }
