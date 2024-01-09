@@ -37,6 +37,7 @@ public class Board : MonoBehaviour
         float startX = -(boardWidth - 1) * (cardWithOffsetX / 2);
         float startZ = -(boardHeight - 1) * (cardWithOffsetZ / 2);
 
+        Random.InitState(System.DateTime.Now.Millisecond);
         int x_multiplier2 = Random.Range(0, boardWidth - 1);
         int y_multiplier2 = Random.Range(0, boardHeight - 1);
         int x_multiplier3;
